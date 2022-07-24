@@ -1,0 +1,102 @@
+<div class="temp-landing" >
+
+    <div class="section-top">
+        <!-- <img class="fondo" src="../../../assets/img/bg-top-big.png" alt=""> -->
+        <button class="btn bg-white font-500 justify-self-end" (click)="display_lang=true" > <span class="icon icon-world"></span> {{"lang" | translate}} </button>
+        <img class="logo" src="../../../assets/img/logo-white.png" alt="">
+
+        <div class="subcard-18">
+            <h1 >+18</h1>
+            <h5>{{"landing.card_18" | translate}}</h5>
+        </div>
+    </div>
+
+    <div class="section-content">
+        <p class="text-center">
+            {{"landing.parrafo" | translate}}
+        </p>
+
+        <div class="grid align-content-center justify-items-center gap-20">
+            <button class="btn-primary btn-block" (click)="display_inv =true;inv=false"  > {{"landing.btn_crear" | translate}} </button>
+            <button class="btn-primary btn-block" id="crear" hidden routerLink="signup" ></button>
+            <button class="btn-secondary btn-block" [routerLink]="['/login']">{{"landing.btn_iniciar" | translate}}</button>
+            <button class="btn invitado" (click)="display_inv =true;inv=true" >{{"landing.btn_invitado" | translate}}</button>
+        </div>
+
+    </div>
+</div>
+
+<div class="container" *ngIf="display_inv" >
+    <div class="card inv">
+        <div class="subcard-18 align-self-center ">
+            <h1 >+18</h1>
+            <h5>{{"landing.card_18" | translate}}</h5>
+        </div>
+
+        <div class="content">  
+            <p>
+                {{"landing.card_new.p1" | translate }}
+            </p>
+
+            <p>
+                {{"landing.card_new.p2" | translate }} 
+            </p>
+
+            <p>
+                {{"landing.card_new.p3" | translate }} 
+            </p>
+
+            <p>
+                {{"landing.card_new.p4" | translate }}
+            </p>
+
+            <p>
+                {{"landing.card_new.p5" | translate }}
+            </p>
+        </div>
+
+        <div class="checkbox-group term">
+            <input type="checkbox" [(ngModel)]="checkterm"  id="session-open">
+            <label for="session-open"> {{"landing.card_new.check_p1" | translate }} <a href="https://ladies-vip.dattatech.com/terminos" style="font-size: 12px;" >  {{"landing.card_new.check_p2" | translate }} </a> </label>
+        </div>
+
+        <div class="ctrl-btn">
+            <button class="" [class]="checkterm?'btn-primary':'btn-disable'"  *ngIf="inv" (click)=" checkterm &&LogInAsGuest()" > {{"landing.card_new.aceptar" | translate }}  </button>
+            <button class="" [class]="checkterm?'btn-primary':'btn-disable'"  *ngIf="!inv" (click)=" checkterm &&GoCreate()" > {{"landing.card_new.aceptar" | translate }}  </button>
+            <button class="btn-secondary" (click)="display_inv = false" > {{"landing.card_new.rechazar" | translate }} </button>
+        </div>
+        
+    </div>
+
+</div>
+
+<!-- ? IDIOMA ============================================== -->
+<div class="bg-card fadeIn"  *ngIf="display_lang">
+    <div class="card-option onUp" >
+        <div class="card-option-header">
+            <button class="btn justify-self-end"> <span class="icon"></span> </button>
+
+            <h3 class=" justify-self-center text-center font-600">{{"landing.title_lang" | translate}}</h3>
+
+            <button class="btn justify-self-end" (click)="CerrarModal()"> <span class="icon icon-close"></span> </button>
+        </div>
+
+        <div class="card-option-body">
+            <div class="radio-group" style="justify-content: space-between;" >
+                <label > Spanish </label>
+                <input (click)="SetLang('es')" [(ngModel)]="lang" value="es"  name="lang" type="radio">
+            </div>
+            <div class="radio-group" style="justify-content: space-between;" >
+                <label > English </label>
+                <input (click)="SetLang('en')" [(ngModel)]="lang" value="en"  name="lang" type="radio">
+            </div>
+            <div class="radio-group" style="justify-content: space-between;" >
+                <label > German </label>
+                <input (click)="SetLang('ge')" [(ngModel)]="lang" value="ge"  name="lang" type="radio">
+            </div>
+        </div>
+
+        
+
+    </div>
+</div>

@@ -1,0 +1,606 @@
+{
+    "lang":"German",
+    
+    "landing":{
+        "parrafo":"Durch Registrierung oder Login Ladies VIP Sie erklären sich damit einverstanden fortzufahren nach unseren Bedingungen und Bedingungen und Datenschutzrichtlinien",
+        "card_18":"ERWACHSENE",
+        "btn_crear":"Anmelden",
+        "btn_iniciar":"Einloggen",
+        "btn_invitado":"Starten Sie als Gast",
+        "card_new":{
+            "p1":"Ich verkünde das: \n -Ich bin über 18 Jahre alt und besitze die Rechtsfähigkeit zum Anzeigen, Zugreifen und Navigieren.",
+            "p2":"-Dass ich niemandem unter 18 Jahren den Zugriff auf die Anwendung gestatten werde.",
+            "p3":"-Die Aufnahme in die Kategorie „Erwachsene“ erfolgt durch freiwillige und persönliche Entscheidung, weil ich darauf zugreifen möchte.",
+            "p4":"-Ich bin voll verantwortlich für meinen Zugriff, erkenne und akzeptiere, dass ich unangemessenes Material für Kinder unter 18 Jahren in Fotos und Beschreibungen finden kann, ohne dass diesem Zugriff rechtliche Hindernisse entgegenstehen.",
+            "p5":"- Ich bin verantwortlich für die Einhaltung der geltenden Gesetze, insbesondere im Hinblick auf den Schutz von Kindern und Jugendlichen, und verpflichte mich, diese Kategorie nicht auf unangemessene Weise oder zu Zwecken zu verwenden.",
+            "check_p1":"Ich akzeptiere das",
+            "check_p2":"Geschäftsbedingungen",
+            "aceptar":"Bestätigen",
+            "rechazar":"Abfall"
+        },
+        "title_lang":"Sprache"
+    },
+    "iniciar_sesion":{
+        "titulo":"Anmelden",
+        "card_18":"ERWACHSENE",
+        "correo":"Email",
+        "ph_correo":"Email",
+        "contrasena":"Passwort",
+        "ph_contrasena": "Geben Sie ein Passwort ein",
+        "recordar":"Passwort merken",
+        "olvide":"Ich habe mein Passwort vergessen",
+        "otros_inicios":"oder melden Sie sich mit an",
+        "err_contrasena":"Die eingegebenen Zugangsdaten sind falsch.",
+        "err_inicio":"Sie sind nicht registriert. Erstellen Sie ein Konto, um loszulegen Ladies VIP.",
+        "alert_del":{
+            "titulo":"Konto gelöscht",
+            "texto":"Ihr Konto wurde gelöscht, weil Ihre Aktivitäten und/oder Informationen gegen unsere Nutzungsbedingungen verstoßen haben"
+        },
+        "alert_block":{
+            "titulo":"Konto gesperrt",
+            "texto":"Ihr Konto wurde vorübergehend gesperrt, da Ihre Aktivitäten und/oder Informationen möglicherweise gegen unsere Nutzungsbedingungen verstoßen",
+            "btn_des":"Kontoentsperrung anfordern",
+            "p1":{
+                "title":"Anfrage zum Entsperren des Kontos",
+                "label":"Beschreibung des Problems",
+                "btn":"Fortsetzen"
+            },
+            "p2":{
+                "title":"Solicitud enviada",
+                "text":"Ladies Vip wird Sie per E-Mail kontaktieren, um Sie über Ihre Situation zu informieren"
+            }
+        }
+    },
+    "crear_cuenta":{
+        "titulo":"Einloggen",
+        "card_18":"ERWACHSENE",
+        "nombre":"Name",
+        "ph_nombre":"Geben Sie den Vor- und Nachnamen ein",
+        "correo":"Email",
+        "ph_correo":"Email eingeben",
+        "telefono":"Telefonnummer",
+        "ph_codigo":"Cod.",
+        "ph_numero":"Nummer eingeben",
+        "contrasena":"Passwort",
+        "ph_contrasena": "Geben Sie ein Passwort ein",
+        "re_contrasena":"Bestätige das Passwort",
+        "ph_re_contrasena":"Bestätige das Passwort",
+        "recordar":"Passwort merken",
+        "btn_crear":"Benutzerkonto anlegen",
+        "otros_inicios":"oder melden Sie sich mit an",
+        "err_1":"Füllen Sie alle Felder aus und bestätigen Sie sie.",
+        "err_2":"Dieser Account existiert bereits.",
+        "err_3":"Das Passwort hat weniger als 8 Zeichen",
+        "err_4":"Passwörter stimmen nicht überein",
+        "err_5":"Die Mail ist bereits registriert.",
+        "err_6":"Füllen Sie alle Felder aus.",
+        "err_7":"Der eingegebene Code ist nicht korrekt",
+        "fase_0":{
+            "titulo":"Willkommen zu Ladies VIP!",
+            "parrafo":"Als nächstes tragen Sie Ihre Daten ein um Ihnen die besten Zitate zu zeigen."
+        },
+        "btn_continuar":"Fortsetzen",
+        
+        "fase_1":{
+            "titulo":"Wann ist dein Geburstag?",
+            "parrafo":"*Diese Informationen dienen nur dazu, Sie potenziellen Personen zu zeigen durch Filter",
+            "err_p1":"Du hast {{value}} Jahre.",
+            "err_p2":"Sie versuchen, ein Konto auf zu erstellen Ladies VIP mit einem Alter, das in unseren Nutzungsrichtlinien nicht zulässig ist."
+        },
+        "fase_2":{
+            "titulo":"Wo wohnen Sie?",
+            "pais":"Land",
+            "ph_global":"Zur Auswahl",
+            "estado":"Staaten",
+            "ciudad":"Stadt",
+            "parrafo":"*Diese Informationen dienen nur um Sie potenziellen Personen zu zeigen durch Filter"
+        },
+        "fase_3":{
+            "titulo":"Wie identifizieren Sie sich?",
+            "parrafo":"Wähle eine oder mehrere Optionen mit denen du dich identifiziert fühlst",
+            "err":"Wählen Sie mindestens eine Option aus"
+
+        },
+        "fase_4":{
+            "titulo":"Laden Sie ein Profilbild hoch",
+            "parrafo":"Dieses Foto ist für alle Benutzer sichtbar",
+            "err":"Wählen Sie ein Bild aus"
+        },
+        "fase_5":{
+            "titulo":"Was interessiert dich?",
+            "parrafo":"Wähle ein, mehrere Möglichkeiten oder Dienstleistungen, die Sie suchen Ladies VIP"
+        },
+        "fase_6":{
+            "titulo":"Bieten Sie irgendwelche Dienstleistungen an?",
+            "parrafo":"Wählen Sie eine oder mehrere Optionen aus",
+            "saltar":"Option überspringen"
+        },
+        "fase_7":{
+            "titulo":"Geolokalisierung",
+            "parrafo":"Wählen Sie den Geolokalisierungsmodus, um Personen in Ihrer Nähe zu finden",
+            "activar":"Aktivieren",
+            "rechazar":"Im Moment nicht"
+        },
+        "cod_tel":"Code auswählen"
+    },
+    "recuperar_contrasena":{
+        "titulo":"Passwort wiederherstellen",
+        "card_18":"ERWACHSENE",
+        "titulo_recuperar":"Wie möchten Sie Ihr Passwort wiederherstellen?",
+        "correo":"Eine E-Mail senden",
+        "SMS":"Senden Sie eine SMS",
+        "titulo_recibir":"Haben Sie den Code nicht erhalten?",
+        "reenviar":"Code erneut senden",
+        "wait":"warte 2 Min",
+
+        "fase_correo":{
+            "titulo":"E-Mail gesendet",
+            "parrafo":"Wir haben eine E-Mail an gesendet {{value}} mit einem Code, damit Sie Ihr Passwort wiederherstellen können ;)",
+            "parrafo_codigo":"Geben Sie den Code ein, der an die E-Mail gesendet wurde",
+            "err_1":"Die eingegebene E-Mail existiert nicht."
+
+        },
+        "fase_SMS":{
+            "titulo":"SMS gesendet",
+            "parrafo":"Wir haben eine Nachricht an die Nummer gesendet +{{value}} {{value1}}  mit einem Code, damit Sie Ihr Passwort wiederherstellen können ;)",
+            "parrafo_codigo":"Geben Sie den Code ein, der an die Nummer gesendet wurde",
+            "err_1":"Die eingegebene Nummer ist nicht registriert",
+            "err_2":"Die eingegebene Nummer ist ungültig",
+            "err_3":"Die Plattform hat Probleme, bitte versuchen Sie es später erneut"
+        },
+        "text_clave":"Wählen Sie ein Passwort mit mehr als 8 Zeichen. Empfohlen mit einem Sonderzeichen und einem numerischen Zeichen",
+        "select_pais":"Wählen Sie ein anderes Land aus"
+    },
+    "cambiar_contrasena":{
+        "titulo":"Ändere das Passwort",
+        "card_18":"ERWACHSENE",
+        "parrafo":"Wählen Sie ein Passwort mit mehr als 8 Zeichen. Empfohlen mit einem Sonderzeichen und einem numerischen Zeichen",
+        "err_1":"Passwörter stimmen nicht überein",
+        "err_2":"Das Passwort hat weniger als 8 Zeichen",
+        "contrasena":"Passwort",
+        "ph_contrasena":"Geben Sie ein Passwort ein",
+        "recontrasena":"Bestätige das Passwort",
+        "ph_recontrasena":"Bestätige das Passwort",
+        "btn_continuar":"Fortsetzen",
+
+        "modal":{
+            "parrafo":"Soll dieses Gerät Ihr Passwort speichern? Durch das Speichern startet Ihr Login automatisch",
+            "btn_aceptar":"Akzeptieren",
+            "btn_rechazar":"Im Moment nicht"
+        }
+    },
+    "crear_cuenta_telefono":{
+
+        "titulo":"Benutzerkonto anlegen",
+        "card_18":"ERWACHSENE",
+        "numero_telefono":"Telefonnummer",
+        "parrafo":"Bei der Registrierung oder Anmeldung bei Ladies VIP Sie erklären sich damit einverstanden, in Übereinstimmung mit unseren Allgemeinen Geschäftsbedingungen und Datenschutzrichtlinien fortzufahren",
+        "btn_continuar":"Fortsetzen",
+        "Parrafo_codigo":"Geben Sie den Code ein, der an die Nummer gesendet wurde",
+        "titulo_recibir":"Haben Sie den Code nicht erhalten?",
+        "reenviar":"Code erneut senden",
+        "err_1":"Der eingegebene Code ist falsch. versuchen Sie es nochmal",
+        "err_2":"Die eingegebene Nummer ist bereits registriert",
+        "err_3":"Sie sind nicht registriert. Erstellen Sie ein Konto, um mit Ladies VIP loszulegen.",
+        "err_4":"füllen Sie alle Felder aus",
+        "err_5":"Die eingegebene Nummer ist ungültig",
+        "err_6":"Die Plattform hat Probleme, bitte versuchen Sie es später erneut"
+    },
+    "home":{
+        "parrafo":"Beliebte Mitglieder",
+        "val_premium_1":{
+            "titulo":"Möchten Sie diesen Benutzer treffen?",
+            "parrafo":"Seien Sie Teil der Premium-Benutzer in Ladies VIP",
+            "btn_premium":"Prämie sein"
+        },
+        "val_premium_2":{
+            "titulo":"Premium sein!",
+            "parrafo":"Sie haben nur maximal 15 Aufrufe pro Tag. Um auf weitere Inhalte zuzugreifen, Drücken Sie die Taste und erwerben Sie einen Plan",
+            "btn_premium":"Prämie sein"
+        },
+        "val_gest_1":{
+            "titulo":"Möchten Sie Zugriff auf alle unsere Inhalte haben?",
+            "parrafo":"Registrieren Sie sich und werden Sie Teil von Ladies VIP!",
+            "btn_premium":"registrieren"
+        },
+        "val_gest_2":{
+            "titulo":"Anmelden!",
+            "parrafo":"Sie haben nur maximal 15 Aufrufe. Um auf weitere Inhalte zuzugreifen, drücken Sie die Schaltfläche und registrieren Sie sich",
+            "btn_premium":"registrieren"
+        },
+        "val_fav": {
+            "titulo": "Favoritenliste voll!",
+            "parrafo": "Ihre Favoritenliste hat maximal 50 Benutzer. Löschen Sie einige Profile, um mit dem Speichern fortzufahren",
+            "btn_premium": "zu Favoriten gehen"
+        }
+    },
+    "show_anuncio":{
+        "anios":"Jahre",
+        "busco":"ich suche",
+        "pareja":"Partner",
+        "val_1":{
+            "titulo":"Premium sein!",
+            "parrafo":"Sie haben derzeit ein kostenloses Abonnement, Nachrichten senden, Drücken Sie die Taste und erwerben Sie einen Plan",
+            "btn_premium":"Prämie sein"
+        },
+        "val_2":{
+            "parrafo":"Seien Sie Premium und greifen Sie auf alle Inhalte zu",
+            "btn_premium":"Prämie sein"  
+        },
+        "val_guest":{
+            "titulo":"Möchten Sie Zugriff auf alle unsere Inhalte haben?",
+            "parrafo":"Registrieren Sie sich und werden Sie Teil von Ladies VIP!",
+            "btn_premium":"registrieren"
+        }
+
+    },
+    "market_vip":{
+        "ph_buscar":"Suchen",
+        "parrafo":"AUSGEWÄHLTE UNTERNEHMEN",
+        "categoria":"KATEGORIEN",
+        "cat_1":"MASSAGEN",
+        "cat_2":"SPIELZEUG",
+        "cat_3":"HOCHZEITSAGENTUR",
+        "cat_4":"INTIME BEGEGNUNGEN",
+        "btn_pag":"gehe zur Seite"
+    },
+    "notificaciones":{
+        "titulo":"Benachrichtigungen",
+        "btn_mensaje":"Siehe Nachricht",
+        "btn_renovar":"Erneuern",
+        "btn_actualizar":"Aktualisieren"
+    },
+    "perfil":{
+        "anios":"Jahre",
+        "btn_premium":"SEIEN SIE PREMIUM",
+        "btn_registrar":"ANMELDEN",
+        "btn_crear":"ANZEIGE ERSTELLEN",
+        "btn_editar":"ANZEIGE BEARBEITEN",
+        "carrucel":{
+            "subtitle":"UNSERE AKTIONEN",
+            "anuncio":"Anzeige",
+            "boost":"Erneuerungen/boost",
+            "titulo_1":"Förderung Standard",
+            "titulo_2":"Förderung Plus",
+            "titulo_3":"Förderung Plus Extra"
+        }
+    },
+    "configuracion":{
+        "titulo":"Einstellung",
+        "seccion_cuenta":{
+            "titulo":"RECHNUNG",
+            "btn_planes":"Pläne",
+            "btn_pack":"Werbepaket",
+            "btn_pago":"Bezahlverfahren",
+            "btn_acceso":"Zugangskonto",
+            "btn_informacion":"Persönliche Informationen",
+            "btn_negocio":"Handeln"
+        },
+        "seccion_preferencia":{
+            "titulo":"PRÄFERENZEN",
+            "btn_idioma":"Idiom",
+            "btn_notificaciones":"Schalten Sie alle Benachrichtigungen ein",
+            "btn_mensaje":"Nachrichtenbenachrichtigungen erhalten",
+            "btn_alerta":"3 Tage vorher über meinen Plan informieren"
+        },
+        "seccion_legales":{
+            "titulo":"RECHTLICH",
+            "btn_privacidad":"Datenschutzrichtlinien",
+            "btn_terminos":"Geschäftsbedingungen",
+            "btn_ayuda":"Benutzerhilfe"
+        },
+        "btn_cerrar":"ABMELDEN",
+        "val_gest":{
+            "titulo":"Möchten Sie Zugriff auf alle unsere Inhalte haben?",
+            "parrafo":"Registrieren Sie sich und werden Sie Teil von Ladies VIP!",
+            "btn_premium":"Registrieren"
+        },
+        "val_premium":{
+            "titulo":"Premium sein!",
+            "parrafo":"Sie haben derzeit einen kostenlosen Plan, sind Premium und genießen alle Vorteile",
+            "btn_premium":"Premium sein"
+        }
+    },
+    "pack_anuncio":{
+        "title":"Werbepaket",
+        "etiqueta":"1 MONAT KOSTENLOS",
+        "mes":"Monat",
+        "anuncio":"Anzeige",
+        "fotos":"fotos",
+        "video":"Video",
+        "renovaciones":"Renovierungen/boost",
+        "renovacion":"Erneuerung",
+        "at_1":{
+            "titulo_1":"Förderung Standard"
+        },
+        "at_2":{
+            "titulo":"Förderung Plus"
+        },
+        "at_3":{
+            "titulo_3":"Förderung Extra Plus"
+        },
+        "at_4":{
+            "titulo-4":"Karussell-Aktion",
+            "dias":"Für 1 Tage"
+        },
+        "at_5":{
+            "titulo":"Separate Erneuerung"
+        }
+    },
+    "pagos":{
+        "part_1":{
+        "renovar":"Automatische Erneuerung",
+        "metodo_pago":"Wählen Sie eine Bezahlungsart",
+        "tarjeta":"Debitkarte/Anerkennung",
+        "cargos":"*Ihre Karte wird nicht belastet*"
+        },
+        "part_2":{
+            "total":"Insgesamt zu bezahlen",
+            "tarjeta":"Kartennummer",
+            "mes":"Monat",
+            "anios":"Jahre",
+            "guardar":"Speichern Sie Daten für zukünftige Zahlungen",
+            "btn_confirmar":"Bestätige Zahlung"
+        },
+        "part_3":{
+            "titulo":"Zahlung erfolgt!",
+            "parrafo":"Ihre Zahlung für das Paket {{value}} war erfolgreich!",
+            "btn_home":"nach Hause gehen",
+            "plan":"Ihr Premium-Plan wurde erfolgreich hinzugefügt!",
+            "separado":"Ihr separates Paket wurde erfolgreich hinzugefügt!"
+
+        }
+
+    },
+    "plan_premium":{
+        "titulo":"Pläne",
+        "plan_actual":"DERZEITIGER PLANL",
+        "parrafo":"Warum wählen Sie Premium?",
+        "card_1":{
+            "mes":"Monat",
+            "titulo":"Premium-Plan",
+            "check_1":"Zugriff auf alle verfügbaren Inhalte der Anzeigen",
+            "check_2":"Unbegrenzter Zugriff auf alle Profile",
+            "check_3":"Sie können Werbetreibende speichern",
+            "check_4":"Senden und empfangen Sie Nachrichten von anderen Benutzern",
+            "btn_plan":"Plan kaufen"
+        }
+    },
+    "gestion_anuncio":{
+        "titulo":"Anzeige erstellen",
+        "opt_fotos":{
+            "foto":"Sie haben maximal 10 Fotos",
+            "info":"PERSÖNLICHE INFORMATIONEN",
+            "anios":"Jahre",
+            "ph_buscar":"Suchen",
+            "ph_categoria":"Wählen Sie eine Kategorie aus",
+            "descripcion":"Beschreibung:",
+            "ph_descripcion":"hier schreiben",
+            "permiso":"GENEHMIGUNGEN",
+            "btn_llamada":"Anrufe ermöglichen",
+            "btn_chat":"Online Chat",
+            "btn_whatsapp":"WhatsApp aktivieren",
+            "btn_publicar":"Postanzeige"
+        },
+        "opt_video":{
+           "titulo":"Anzeige erstellen",
+           "parrafo":"Sie haben derzeit das Standardpaket, und mit diesem Plan können Sie kein Video hochladen. und mit diesem Plan können Sie kein Video hochladen.",
+           "btn_pack":"Siehe Anzeigenpaket",
+           "btn_publicar":"Postanzeige" 
+        },
+        "select_interes":{
+            "titulo":"Ich suche Interessen in....",
+            "btn_agregar":"Hinzufügen"
+        },
+        "modal":{
+            "titulo":"Ansage in Wartestellung",
+            "parrafo_1":"Ein Moderator überprüft Ihre Anzeige, um sicherzustellen, dass sie den Nutzungsbedingungen der App entspricht.",
+            "parrafo_2":"Die geschätzte Überprüfung beträgt 24 Stunden und Sie werden über den Status Ihrer Anzeige benachrichtigt     ",
+            "btn_ok":"OK"
+        },
+        "boost":{
+            "titulo":"Mach ein boost!",
+            "parrafo":"du bist gegangen {{value}} Renovierungen (boost).Drücken Sie die Taste, um fortzufahren",
+            "btn_hacer":"Machen boost"
+        },
+        "boost_exitoso":{
+            "btn_exito":"Boost erfolgreich!"
+        },
+        "boost_error":{
+            "titulo":"Ohne boost!",
+            "parrafo":"Die Verlängerungen, die Sie in dieser Werbeaktion hatten, sind abgelaufen.Aktualisieren und weiter genießen",
+            "btn_renovar":"Erneuern",
+            "subtitulo":"Automatisch erneuern"
+        }
+    },
+    "ayuda":{
+        "titulo":"Benutzerhilfe",
+        "btn_siguiente":"Folgend",
+        "part_1":{
+            "parrafo":"Karten von Benutzern, die Sie nach Belieben visualisieren und hervorheben können"
+        },
+        "part_2":{
+            "parrafo":"Durch Berühren der Karte werden die Benutzerinformationen angezeigt"
+        },
+        "part_3":{
+            "parrafo":"Wenn Sie auf das rechte Symbol tippen, werden Ihnen ähnliche Benutzer angezeigt"
+        },
+        "part_4":{
+            "parrafo":"Erstellen Sie Filter der Hauptkarten basierend auf Ort, Alter, Menschen in Ihrer Nähe und nach Ihrem Geschmack und Ihren Vorlieben"
+        },
+        "part_5":{
+            "parrafo":"Tippen Sie auf einen vorgestellten Benutzer und Sie können seine Informationen auf der Hauptkarte anzeigen"
+        },
+        "part_6":{
+            "parrafo":"Filtern Sie ausgewählte Benutzer nach Standort, Alter, Menschen in Ihrer Nähe und nach Ihrem Geschmack und Ihren Vorlieben"
+        },
+        "part_7": {
+            "parrafo": "Durch Berühren des mittleren Symbols können Sie sie in einer Favoritenliste speichern"
+        },
+        "part_8": {
+            "parrafo": "Durch Berühren des linken Symbols können Sie Benutzer verwerfen"
+        },
+        "btn_finalizar":"Zu finalisieren"
+    },
+    "negocio":{
+        "titulo":"Handeln",
+        "titulo_2":"Unternehmen erstellen",
+        "btn_siguiente":"Folgend",
+        "parrafo":"Hier können Sie Ihre Geschäfte in Ladies VIP verwalten und erstellen",
+        "btn_crear":"Geschäft erstellen",
+        "btn_publicar":"Postgeschäft",
+
+        "paso_1":{
+            "titulo":"SCHRITT",
+            "parrafo":"Geben Sie Informationen zum Unternehmen ein",
+            "nombre":"Firmenname",
+            "ph_nombre":"Geben Sie einen Namen ein",
+            "categoria":"Kategorie",
+            "ph_categoria":"Zur Auswahl",
+            "whatsapp":"WhatsApp (handeln)",
+            "web":"Geschäftsverbindung (Web oder soziale Netzwerke)",
+            "descripcion":"Beschreibung",
+            "ph_descripciom":"Eine Zusammenfassung schreiben"
+
+        },
+        "paso_2":{
+            "titulo":"SCHRITT 2",
+            "parrafo":"Geben Sie Informationen zum Ort ein",
+            "direccion":"Richtung",
+            "ph_direcion":"Bitte geben Sie eine Adresse an",
+            "pais":"Land",
+            "estado":"Zustand",
+            "ciudad":"Stadt",
+            "ubicacion":"Suchen Sie innerhalb der Karte",
+            "coordenadas":"Koordinaten"
+        },
+        "part_3":{
+            "titulo":"SCHRITT 3",
+           "parrafo":"Geben Sie Bilder ein, die das Unternehmen identifizieren" 
+        },
+        "elimiar":{
+            "btn_editar":"Bearbeiten",
+            "btn_eliminar":"Geschäft löschen",
+            "btn_ir":"gehe zur Seite"
+        },
+        "modal_1":{
+            "titlo":"Möchten Sie Ihr Unternehmen wirklich löschen?",
+            "parrafo":"Wenn Sie Ihr Unternehmen löschen, werden alle Informationen gelöscht, Fotos und andere dauerhaft und können nicht mehr wiederhergestellt werden",
+            "btn_eliminar":"Geschäft löschen",
+            "btn_cancelar":"Absagen"
+        },
+        "modal_2":{
+            "titilo":"Geschäft eliminiert",
+            "parrafo":"Ihr Damen-VIP-Geschäft wurde erfolgreich gelöscht",
+            "btn_ok":"Ok"
+        },
+        "modal_bloqueado":{
+            "titulo":"Geschäft gesperrt",
+            "parrafo":"Ihr Geschäft wurde von Ladies VIP blockiert. Jedes erstellte Unternehmen muss unseren Nutzungsrichtlinien entsprechen"
+        }
+    },
+    "info_personal":{
+        "titulo":"Persönliche Informationen",
+        "subtitulo":"Profilbild",
+        "btn_editar":"Foto bearbeiten",
+        "cum":"Geburtstag",
+        "residencia":"Wohnort",
+        "identificacion":"Identität",
+        "gustos":"Geschmäcker und Vorlieben",
+        "geolocalizacion":"Geolokalisierung",
+        "btn_geolocalizacion":"Geolokalisierung aktivieren",
+        "btn_guardar":"Änderungen speichern",
+        "cumpleaños":{
+            "titulo":"Geburtstag",
+            "parrafo":"*Diese Informationen dienen nur dazu, Sie potenziellen Personen durch Filter anzuzeigen"
+        },
+        "lugar_residencia":{
+            "titulo":"Wohnort",
+            "pais":"Land",
+            "estado":"Zustand",
+           "ciudad":"Stadt"
+        },
+        "Identificación":{
+            "Identificación":"Identity",
+            "parrafo":"Wählen Sie eine, mehrere Optionen oder Dienste aus, die Sie als Benutzer bereitstellen"
+        },
+        "gustos_preferencias":{
+            "titulo":"Geschmäcker und Vorlieben",
+            "parrafo":"Wähle ein, verschiedene Optionen oder Dienstleistungen, die Sie in Ladies VIP suchen"
+        }
+    },
+    "cuenta_acceso":{
+        "titulo":"Zugangskonto",
+        "nombre":"Name",
+        "btn_editar":"Bearbeiten",
+        "email":"Email",
+        "telefono":"Telefon",
+        "contrasena":"Passwort",
+        "btn_eliminar":"KONTO LÖSCHEN",
+        "editar_info":{
+           "nombre":"Name",
+           "email":"Email",
+           "telefono":"Telefon",
+           "btn_guardar":"Änderungen speichern"
+        },
+        "editar_clave":{
+            "clave_actual":"Aktuelles Passwort",
+            "clave":"Passwort",
+            "confirmar_clave":"Bestätige das Passwort",
+            "btn_guardar":"Änderungen speichern"
+        },
+        "err_1":"Ihr aktuelles Passwort ist nicht korrekt.",
+        "delete":{
+            "titulo":"Möchten Sie Ihr Konto wirklich löschen?",
+            "text":"Das Löschen Ihres Kontos löscht alle Ihre Daten, Fotos, Favoritenlisten, Nachrichten und mehr ... dauerhaft und kann nicht mehr wiederhergestellt werden"
+        }
+    },
+    "favoritos":{   
+        "titulo":"Favoriten",
+        "delete":"Favorit entfernen"
+    },
+    "identidad":{
+        "upt_0":"Frau",
+        "upt_1":"Mann",
+        "upt_2":"nicht binär",
+        "upt_3":"Partner",
+        "upt_4":"Gay",
+        "upt_5":"Transe",
+        "upt_6":"Transvestit",
+        "upt_7":"Lesbisch",
+        "upt_8":"Andere"
+    },
+    "intereses":{
+        "upt_0":"Frau",
+        "upt_1":"Mann",
+        "upt_2":"nicht binär",
+        "upt_3":"Partner",
+        "upt_4":"Gay",
+        "upt_5":"Transe",
+        "upt_6":"Transvestit",
+        "upt_7":"Lesbisch",
+        "upt_8":"Andere"
+    },
+    "servicios":{
+        "upt_0":"erotische Massagen",
+        "upt_1":"Sexspielzeug",
+        "upt_2":"sexuelle Räume",
+        "upt_3":"Hochzeitsagentur",
+        "upt_4":"Andere"
+   },
+   "filtro":{
+       "pais":"Land",
+       "estado":"Bundesland",
+       "ciudad":"Stadt",
+       "lugar":"Ort",
+       "distancia":"Distanz",
+       "val_distancia":"Um den Entfernungsfilter zu verwenden, müssen Sie Ihren Standort aktivieren.",
+       "edad":"Das Alter",
+       "interes":"Interessen",
+       "filtrar":"Filter",
+       "filtros":"Filter",
+       "buscar":"Suche",
+       "agregar":"Hinzufügen"
+   }
+
+}

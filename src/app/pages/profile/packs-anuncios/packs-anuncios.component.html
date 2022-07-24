@@ -1,0 +1,107 @@
+<div class="temp-pack">
+    <div class="header">
+        <button class="btn" routerLink=".."> <span class="icon icon-chevron-left"></span> </button>
+        <h2 class="font-500 justify-self-center">{{"pack_anuncio.title" | translate}}</h2>
+    </div>
+
+    <div class="body">
+
+        <div class="card-pack-standart" (click)="SelectPack(0)">
+            <img src="../../../../assets/img/diamont-pack.png" alt="">
+            <div class="card-pack-top">
+                <div class="target" *ngIf="free">
+                    <img src="../../../../assets/img/liston.png" alt="">
+                    <h5>{{"pack_anuncio.etiqueta" | translate}}</h5>
+                </div>
+                <div *ngIf="free" class="price">
+                    <h1 >€ 0.00</h1>
+                    <h2 class="rebaja"> 5.99</h2>
+                    <span>/{{"pack_anuncio.mes" | translate}}</span>
+                </div>
+                <div *ngIf="!free" class="price">
+                    <h1 >€ 5.99</h1>
+                    <span>/{{"pack_anuncio.mes" | translate}}</span>
+                </div>
+            </div>
+
+            <div class="card-pack-body">
+                <h1 class="font-600">{{"pack_anuncio.at_1.titulo_1" | translate}} </h1>
+
+                <h3>1 {{"pack_anuncio.anuncio" | translate}}  • 10 {{"pack_anuncio.fotos" | translate}} </h3>
+                <h3>5 {{"pack_anuncio.renovaciones" | translate}} </h3>
+            </div>
+
+        </div>
+
+        <div class="card-pack-plus" (click)="SelectPack(1)">
+            <img src="../../../../assets/img/diamont-pack.png" alt="">
+            <div class="card-pack-top">
+                <div class="price">
+                    <h1 >€ 9.99</h1>
+                    <span>/{{"pack_anuncio.mes" | translate}}</span>
+                </div>
+            </div>
+
+            <div class="card-pack-body">
+                <h1 class="font-600">{{"pack_anuncio.at_2.titulo" | translate}}  </h1>
+
+                <h3>1 {{"pack_anuncio.anuncio" | translate}} • 10 {{"pack_anuncio.fotos" | translate}} • 1 {{"pack_anuncio.video" | translate}}</h3>
+                <h3>10 {{"pack_anuncio.renovaciones" | translate}}</h3>
+            </div>
+
+        </div>
+
+        <div class="card-pack-extra" (click)="SelectPack(2)">
+            <img src="../../../../assets/img/diamont-pack.png" alt="">
+            <div class="card-pack-top">
+                <div class="price">
+                    <h1 >€ 19.99</h1>
+                    <span>/{{"pack_anuncio.mes" | translate}}</span>
+                </div>
+            </div>
+
+            <div class="card-pack-body">
+                <h1 class="font-600">{{"pack_anuncio.at_3.titulo_3" | translate}}</h1>
+
+                <h3>1 {{"pack_anuncio.anuncio" | translate}}  • 10 {{"pack_anuncio.fotos" | translate}} • 2 {{"pack_anuncio.video" | translate}}</h3>
+                <h3>30 {{"pack_anuncio.renovaciones" | translate}}</h3>
+            </div>
+
+        </div>
+
+        <div class="card-pack-carrusel" (click)="SelectPack(3)">
+            <img src="../../../../assets/img/diamont-pack.png" alt="">
+            <div class="card-pack-top">
+                <div class="price">
+                    <h1 >€ 3.99</h1>
+                    <span>/{{"pack_anuncio.mes" | translate}}</span>
+                </div>
+            </div>
+
+            <div class="card-pack-body">
+                <h1 class="font-600">{{"pack_anuncio.at_4.titulo-4" | translate}} </h1>
+
+                <h3>1 {{"pack_anuncio.anuncio" | translate}} • {{"pack_anuncio.at_4.dias" | translate}}</h3>
+            </div>
+
+        </div>
+
+        <div class="card-pack-reno" (click)="SelectPack(4)">
+            <img src="../../../../assets/img/diamont-pack.png" alt="">
+
+            <div class="card-pack-top">
+                <h1 class="font-600">{{"pack_anuncio.at_5.titulo" | translate}}</h1>
+            </div>
+
+            <div class="card-pack-body">
+
+                <h3>1 {{"pack_anuncio.renovacion" | translate}}: <span class="font-600"> 0.99 EUR </span> </h3>
+                <h3>10 {{"pack_anuncio.renovacion" | translate}}  <span class="font-600"> 6.99 EUR </span> </h3>
+                <h3>30 {{"pack_anuncio.renovacion" | translate}}  <span class="font-600"> 19.99 EUR </span> </h3>
+                <h3>1 {{"pack_anuncio.video" | translate}}  <span class="font-600"> 2.99 EUR </span> </h3>
+            </div>
+
+        </div>
+    </div>
+
+</div>

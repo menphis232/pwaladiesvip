@@ -1,0 +1,341 @@
+<div class="temp-info" *ngIf="display_main">
+
+    <div class="header">
+        <button class="btn" routerLink=".." > <span class="icon icon-chevron-left"></span> </button>
+        <h3 class="font-500 justify-self-center">{{"info_personal.titulo" | translate}}</h3>
+    </div>
+
+    <div class="body">
+
+        <div class="section">
+            <div class="title">
+                <h5>{{"info_personal.subtitulo" | translate}}</h5>
+
+                <button class="btn text-primary" (click)="CargarImagen()">{{"info_personal.btn_editar" | translate}}</button>
+            </div>
+
+            <div class="content-img">
+                <img  *ngIf="user_imagen_show == null" [src]="url+datos.img_route" alt="">
+                <img [src]="user_imagen_show" alt="">
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="title">
+                <h5>{{"info_personal.cum" | translate}}</h5>
+
+                <button 
+                    class="btn"
+                    (click)="display_fecha = true; display_main= false"
+                > <span class="icon icon-chevron-right"></span> </button>
+            </div>
+
+            <h2> {{GetEdad()}} {{"perfil.anios" | translate}}</h2>
+        </div>
+
+        <div class="section">
+            <div class="title">
+                <h5> {{"info_personal.residencia" | translate}}</h5>
+
+                <button 
+                    class="btn" 
+                    (click)="display_residencia = true; display_main= false"
+                > <span class="icon icon-chevron-right"></span> </button>
+            </div>
+
+            <h2> {{datos.estado}}, {{datos.pais}}</h2>
+            <h2> {{datos.ciudad}}</h2>
+        </div>
+
+        <div class="section">
+            <div class="title">
+                <h5>{{"info_personal.identificacion" | translate}}</h5>
+
+                <button 
+                    class="btn"
+                    (click)="display_identidad = true; display_main= false"
+                > <span class="icon icon-chevron-right"></span> </button>
+            </div>
+
+            <div class="flex-column">
+                <button 
+                    class="btn-disable"
+                    *ngFor="let item of identidad_name"
+                >
+                    {{item}}
+                </button>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="title">
+                <h5>{{"info_personal.gustos" | translate}}</h5>
+
+                <button 
+                    class="btn"
+                    (click)="display_preferencia = true; display_main= false"
+                > <span class="icon icon-chevron-right"></span> </button>
+            </div>
+
+            <div class="flex-column">
+                <button 
+                    class="btn-disable"
+                    *ngFor="let item of intereses_name"
+                >
+                    {{item}}
+                </button>
+                <button 
+                    class="btn-disable"
+                    *ngFor="let item of servicios_name"
+                >
+                    {{item}}
+                </button>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="title">
+                <h5>{{"info_personal.geolocalizacion" | translate}}</h5>
+            </div>
+
+            <div class="geo">
+                <h4>{{"info_personal.btn_geolocalizacion" | translate}}</h4>
+                <input type="checkbox" class="check-button">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- !SECTION FECHA NAC -->
+<div class="temp-info" *ngIf="display_fecha">
+    <div class="header">
+        <button class="btn" (click)="closeModal()" > <span class="icon icon-chevron-left"></span> </button>
+        <h3 class="font-500 justify-self-center">{{"info_personal.cumpleaños.titulo" | translate}}</h3>
+    </div>  
+
+    <div class="body" style="align-content: space-between;">
+
+        <div class="grid gap-20">
+            <input type="date" [(ngModel)]="datos.fecha_nac">
+
+            <p>{{"info_personal.cumpleaños.parrafo" | translate}}</p>
+        </div>
+
+        <button class="btn-primary btn-block" (click)="UpdateUser()">{{"info_personal.btn_guardar" | translate}}</button>
+    </div>
+</div>
+
+
+<!-- !SECTION RESIDENCIA -->
+<div class="temp-info" *ngIf="display_residencia">
+    <div class="header">
+        <button class="btn" (click)="closeModal()" > <span class="icon icon-chevron-left"></span> </button>
+        <h3 class="font-500 justify-self-center">{{"info_personal.lugar_residencia.titulo" | translate}}</h3>
+    </div>  
+
+    <div class="body form-location" style="align-content: space-between;">
+
+        <div class="grid gap-20">
+            <div class="form-group">
+                <label for="">{{"info_personal.lugar_residencia.pais" | translate}} </label>
+                <button class="btn"  > Spain <span class="icon icon-chevron-down"></span> </button>
+            </div>
+
+            <div class="form-group">
+                <label for="">{{"info_personal.lugar_residencia.estado" | translate}} </label>
+                <button class="btn" (click)=" display_estado = true"> {{datos.estado}} <span class="icon icon-chevron-down"></span> </button>
+            </div>
+            
+            <div class="form-group">
+                <label for="">{{"info_personal.lugar_residencia.ciudad" | translate}} </label>
+                <button class="btn" (click)=" (datos.estado) && display_ciudad = true"  > {{datos.ciudad}} <span class="icon icon-chevron-down"></span> </button>
+            </div>
+        </div>
+
+        <button class="btn-primary btn-block" (click)=" (datos.ciudad && datos.pais && datos.estado) && UpdateUser()" >{{"info_personal.btn_guardar" | translate}}</button>
+    </div>
+</div>
+
+
+<!-- ! SECTION IDENTIDAD -->
+<div class="temp-info" *ngIf="display_identidad">
+    <div class="header">
+        <button class="btn" (click)="closeModal()" > <span class="icon icon-chevron-left"></span> </button>
+        <h3 class="font-500 justify-self-center">{{"info_personal.Identificación.Identificación" | translate}}</h3>
+    </div>  
+
+    <div class="body" style="align-content: space-between;">
+
+        <div class="grid gap-20">
+            <p>
+                {{"info_personal.Identificación.parrafo" | translate}}
+            </p>
+
+            <div class="group-btn-identidad">
+                <button [ngClass]="filtrarSelect(0,1)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(0,$event, 1)">{{"identidad.upt_0" | translate}}</button>
+                <button [ngClass]="filtrarSelect(1,1)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(1,$event, 1)">{{"identidad.upt_1" | translate}}</button>
+                <button [ngClass]="filtrarSelect(2,1)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(2,$event, 1)">{{"identidad.upt_2" | translate}}</button>
+                <button [ngClass]="filtrarSelect(3,1)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(3,$event, 1)">{{"identidad.upt_3" | translate}}</button>
+                <button [ngClass]="filtrarSelect(4,1)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(4,$event, 1)">{{"identidad.upt_4" | translate}}</button>
+                <button [ngClass]="filtrarSelect(5,1)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(5,$event, 1)">{{"identidad.upt_5" | translate}}</button>
+                <button [ngClass]="filtrarSelect(6,1)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(6,$event, 1)">{{"identidad.upt_6" | translate}}</button>
+                <button [ngClass]="filtrarSelect(7,1)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(7,$event, 1)">{{"identidad.upt_7" | translate}}</button>
+                <button [ngClass]="filtrarSelect(8,1)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(8,$event, 1)">{{"identidad.upt_8" | translate}}</button>
+            </div>
+        </div>
+
+        <button class="btn-primary btn-block" (click)="UpdateIdentidad()" >{{"info_personal.btn_guardar" | translate}}</button>
+    </div>
+</div>
+
+<!-- ! SECTION PREFERENCIA -->
+<div class="temp-info" *ngIf="display_preferencia">
+    <div class="header">
+        <button class="btn" (click)="closeModal()" > <span class="icon icon-chevron-left"></span> </button>
+        <h3 class="font-500 justify-self-center">{{"info_personal.gustos_preferencias.titulo" | translate}}</h3>
+    </div>  
+
+    <div class="body" style="align-content: space-between;">
+
+        <div class="grid gap-20">
+            <p>
+                {{"info_personal.gustos_preferencias.parrafo" | translate}}
+            </p>
+
+            <div class="group-btn-identidad">
+                <button [ngClass]="filtrarSelect(0,2)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(3,$event,2)">{{"identidad.upt_0" | translate}}</button>
+                <button [ngClass]="filtrarSelect(1,2)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(3,$event,2)">{{"identidad.upt_1" | translate}}</button>
+                <button [ngClass]="filtrarSelect(2,2)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(3,$event,2)">{{"identidad.upt_2" | translate}}</button>
+                <button [ngClass]="filtrarSelect(3,2)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(3,$event,2)">{{"identidad.upt_3" | translate}}</button>
+                <button [ngClass]="filtrarSelect(4,2)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(4,$event,2)">{{"identidad.upt_4" | translate}}</button>
+                <button [ngClass]="filtrarSelect(5,2)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(5,$event,2)">{{"identidad.upt_5" | translate}}</button>
+                <button [ngClass]="filtrarSelect(6,2)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(6,$event,2)">{{"identidad.upt_6" | translate}}</button>
+                <button [ngClass]="filtrarSelect(7,2)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(7,$event,2)">{{"identidad.upt_7" | translate}}</button>
+                <button [ngClass]="filtrarSelect(8,2)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(8,$event,2)">{{"identidad.upt_8" | translate}}</button>
+                <button [ngClass]="filtrarSelect(0,3)? 'btn-genero-active':'btn-genero'" (click)="selectServicio(0,$event)">{{"servicios.upt_0" | translate}}</button>
+                <button [ngClass]="filtrarSelect(1,3)? 'btn-genero-active':'btn-genero'" (click)="selectServicio(1,$event)">{{"servicios.upt_1" | translate}}</button>
+                <button [ngClass]="filtrarSelect(2,3)? 'btn-genero-active':'btn-genero'" (click)="selectServicio(2,$event)">{{"servicios.upt_2" | translate}}</button>
+                <button [ngClass]="filtrarSelect(3,3)? 'btn-genero-active':'btn-genero'" (click)="selectServicio(3,$event)">{{"servicios.upt_3" | translate}}</button>
+                <button [ngClass]="filtrarSelect(4,3)? 'btn-genero-active':'btn-genero'" (click)="selectServicio(4,$event)">{{"servicios.upt_4" | translate}}</button>
+            </div>
+        </div>
+
+        <button class="btn-primary btn-block" (click)="UpdateInteres()" >{{"info_personal.btn_guardar" | translate}}</button>
+    </div>
+</div>
+
+<!-- ? PAIS ============================================== -->
+<div class="bg-card fadeIn"  *ngIf="display_pais">
+    <div class="card-option onUp" >
+        <div class="card-option-header">
+            <button class="btn justify-self-end"> <span class="icon"></span> </button>
+
+            <h3 class=" justify-self-center text-center font-600">{{"info_personal.lugar_residencia.pais" | translate}}</h3>
+
+            <button class="btn justify-self-end" (click)="CerrarModal()"> <span class="icon icon-close"></span> </button>
+        </div>
+
+        <div class="card-option-search">
+            <div class="group-input-icon-left">
+                <span class="icon icon-search"></span>
+                <input type="text" [(ngModel)]="filtro" (keyup)="filtrar()" placeholder="Buscar">
+            </div>
+        </div>
+
+        <div class="card-option-body" *ngIf="pais_filtro.length == 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let locacion of locaciones;let i = index">
+                <label [for]="i"> {{locacion.country_name}}</label>
+                <input (click)="SelectPais( locacion.country_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+        <div class="card-option-body" *ngIf="pais_filtro.length != 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let locacion of pais_filtro;let i = index">
+                <label [for]="i"> {{locacion.country_name}} </label>
+                <input (click)="SelectPais( locacion.country_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ? ESTADO ============================================== -->
+<div class="bg-card fadeIn"  *ngIf="display_estado">
+    <div class="card-option onUp" >
+        <div class="card-option-header">
+            <button class="btn justify-self-end"> <span class="icon"></span> </button>
+
+            <h3 class=" justify-self-center text-center font-600">{{"info_personal.lugar_residencia.estado" | translate}}</h3>
+
+            <button class="btn justify-self-end" (click)="CerrarModal()"> <span class="icon icon-close"></span> </button>
+        </div>
+
+        <div class="card-option-search">
+            <div class="group-input-icon-left">
+                <span class="icon icon-search"></span>
+                <input type="text" [(ngModel)]="filtro" (keyup)="filtrar()" placeholder="Buscar">
+            </div>
+        </div>
+        <div *ngIf="loading" class="loading"></div>
+        <div class="card-option-body" *ngIf="estado_filtro.length == 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let estado of estados;let i = index">
+                <label [for]="i"> {{estado.state_name}}</label>
+                <input (click)="SelectEstado( estado.state_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+        <div class="card-option-body" *ngIf="estado_filtro.length != 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let estado of estado_filtro;let i = index">
+                <label [for]="i"> {{estado.state_name}} </label>
+                <input (click)="SelectEstado( estado.state_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ? CIUDAD ============================================== -->
+<div class="bg-card fadeIn"  *ngIf="display_ciudad">
+    <div class="card-option onUp" >
+        <div class="card-option-header">
+            <button class="btn justify-self-end"> <span class="icon"></span> </button>
+
+            <h3 class=" justify-self-center text-center font-600">{{"info_personal.lugar_residencia.ciudad" | translate}}</h3>
+
+            <button class="btn justify-self-end" (click)="CerrarModal()"> <span class="icon icon-close"></span> </button>
+        </div>
+
+        <div class="card-option-search">
+            <div class="group-input-icon-left">
+                <span class="icon icon-search"></span>
+                <input type="text" [(ngModel)]="filtro" (keyup)="filtrar()" placeholder="Buscar">
+            </div>
+        </div>
+
+        <div *ngIf="loading" class="loading"></div>
+
+        <h2 class="text-center" *ngIf="ciudades.length == 0">No posee, continue a la siguiente fase</h2>
+        <div class="card-option-body" *ngIf="ciudad_filtro.length == 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let ciudad of ciudades;let i = index">
+                <label [for]="i"> {{ciudad.city_name}}</label>
+                <input (click)="SelectCiudad( ciudad.city_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+        <div class="card-option-body" *ngIf="ciudad_filtro.length != 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let ciudad of ciudad_filtro;let i = index">
+                <label [for]="i"> {{ciudad.city_name}} </label>
+                <input (click)="SelectCiudad( ciudad.city_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="container" *ngIf="loading_global"> 
+    <span class="icon icon-loading loading"></span>
+</div>

@@ -1,0 +1,80 @@
+@import '../../../theme/variables';
+
+.temp-signup{
+    display: grid;
+    grid-template: 
+	"section-top" 160px
+    "section-content" auto /
+    100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.section-top{
+    grid-area: section-top;
+    position: relative;
+    display: grid;
+    padding: 40px 20px;
+    background-image: url("../../../assets/img/bg-top.png");
+    img.fondo{
+        top: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .subcard-18{
+        bottom: 0;
+        right: 0;
+    }
+
+    h1{
+        font-weight: 600;
+        align-self: end;
+        color: white;
+    }
+
+}  
+
+.section-content{
+    grid-area: section-content;
+    display: grid;
+    padding: 20px 10px;
+    margin:0px auto;
+
+    div{
+        max-width: 420px;
+    }
+    .fase-2{
+        display: grid;
+        align-content: space-between;
+        max-height: 500px;
+    }
+}
+
+
+.group-input-code{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    grid-gap: 10px;
+
+    input{
+        width: 48px;
+        height: 48px;
+        padding: 12px;
+        background: #ECECEC;
+        border-radius: 8px;
+        text-align: center;
+    }
+}
+
+.btn-reenviar,.btn-reenviar-disable{
+    background: none;
+    border: none;
+    color: #3B82F6;
+    text-decoration: underline;
+}

@@ -1,0 +1,139 @@
+<div class="temp-cuenta">
+
+    <div class="header">
+        <button *ngIf="display_main" class="btn" routerLink=".."> <span class="icon icon-chevron-left"></span> </button>
+        <button *ngIf="!display_main" class="btn" (click)="Return()" > <span class="icon icon-chevron-left"></span> </button>
+        <h3 class="font-500 justify-self-center">{{"cuenta_acceso.titulo" | translate}}</h3>
+    </div>
+
+    <div class="body">
+        
+        <div class="section" *ngIf="display_main"  (click)="display_info = true; display_main =false">
+            <div class="head">
+                <h4>{{"cuenta_acceso.nombre" | translate}}</h4>
+                <button class="btn">{{"cuenta_acceso.btn_editar" | translate}}</button>
+            </div>
+
+            <h3> {{usuario.name}} </h3>
+
+            <div class="form-group">
+                <span>{{"cuenta_acceso.email" | translate}}</span>
+                <h3> {{usuario.email}} </h3>
+            </div>
+    
+            <div class="form-group">
+                <span>{{"cuenta_acceso.telefono" | translate}}</span>
+                <h3>+{{usuario.code_phone}} {{usuario.telefono}}</h3>
+            </div>
+        </div>
+
+        <div class="section" *ngIf="display_main">
+            <div class="head">
+                <h4>{{"cuenta_acceso.contrasena" | translate}}</h4>
+                <button class="btn" (click)="display_clave = true; display_main =false" >{{"cuenta_acceso.btn_editar" | translate}}</button>
+            </div>
+            
+        </div>  
+
+
+        <div class="section" *ngIf="display_info">
+            <div class="form-group">
+                <span>{{"cuenta_acceso.nombre" | translate}}</span>
+                <input type="text" [(ngModel)]="usuario.name">
+            </div>
+
+            <div class="form-group">
+                <span>{{"cuenta_acceso.email" | translate}}</span>
+                <input type="text" [(ngModel)]="usuario.email">
+            </div>
+
+            <div class="form-group">
+                <span>{{"cuenta_acceso.telefono" | translate}}</span>
+                <input type="text" [(ngModel)]="usuario.telefono">
+            </div>
+
+            <p class="text-error" *ngIf="error==1">{{"crear_cuenta.err_5" | translate}}</p>
+            <p class="text-error" *ngIf="error==2">{{"crear_cuenta_telefono.err_2" | translate}}</p>
+
+        </div>
+
+        <div class="section" *ngIf="display_clave">
+            <div class="form-group">
+                <span>{{"cuenta_acceso.editar_clave.clave_actual" | translate}}</span>
+                <div class="group-input-icon-right">
+                    <span class="icon" class="icon-eyes-close" (click)="tooglePass('clave_actual',$event)" ></span>
+                    <input 
+                        type="password" 
+                        id="clave_actual"
+                        [(ngModel)]="clave_actual" 
+                        placeholder=""
+                        maxlength="25"
+                    >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span>{{"cuenta_acceso.editar_clave.clave" | translate}}</span>
+                <div class="group-input-icon-right">
+                    <span class="icon" class="icon-eyes-close" (click)="tooglePass('clave',$event)" ></span>
+                    <input 
+                        type="password" 
+                        id="clave"
+                        [(ngModel)]="clave" 
+                        placeholder=""
+                        maxlength="25"
+                    >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span>{{"cuenta_acceso.editar_clave.confirmar_clave" | translate}}</span>
+                <div class="group-input-icon-right">
+                    <span class="icon" class="icon-eyes-close" (click)="tooglePass('re_clave',$event)" ></span>
+                    <input 
+                        type="password" 
+                        id="re_clave" 
+                        [(ngModel)]="re_clave" 
+                        placeholder=""
+                        maxlength="25"
+                    >
+                </div>
+            </div>
+            <p class="text-error" *ngIf="error==3">{{"cuenta_acceso.err_1" | translate}}</p>
+            <p class="text-error" *ngIf="error==4">{{"crear_cuenta.err_3" | translate}}</p>
+            <p class="text-error" *ngIf="error==5">{{"crear_cuenta.err_4" | translate}}</p>
+
+        </div>
+        
+    </div>
+
+    <div class="footer">
+        <button class="btn-primary btn-block" (click)="show_delete =true"  *ngIf="display_main"> {{"cuenta_acceso.btn_eliminar" | translate}} </button>
+        <button class=" btn-block" 
+                [ngClass]="(VacioU(usuario.name) || VacioU(usuario.email) || VacioU(usuario.telefono))?'btn-disable':'btn-primary'" 
+                (click)="!(VacioU(usuario.name) || VacioU(usuario.email) || VacioU(usuario.telefono)) && UpdateInfo()" 
+                *ngIf="display_info"> {{"cuenta_acceso.editar_info.btn_guardar" | translate}} <span *ngIf="loading" class="icon icon-loader"></span> </button>
+        <button 
+            class="btn-block"
+            [ngClass]="(VacioU(clave) || VacioU(clave_actual) || VacioU(re_clave))?'btn-disable':'btn-primary'" 
+            (click)="!(VacioU(clave) || VacioU(clave_actual) || VacioU(re_clave)) && UpdateInfo()" *ngIf="display_clave">{{"cuenta_acceso.editar_info.btn_guardar" | translate}} <span *ngIf="loading" class="icon icon-loader"></span> </button>
+    </div>
+
+</div>
+
+<div class="container" *ngIf="show_delete">
+
+    <div class="card-delete">
+        <img src="../../../../assets/img/close-square.png" alt="">
+
+        <h3>{{"cuenta_acceso.delete.titulo" | translate}}</h3>
+        <h4>{{"cuenta_acceso.delete.text" | translate}}</h4>
+        <button class="btn text-error" (click)="Delete()"  >{{"cuenta_acceso.btn_eliminar" | translate}}</button>
+        <button class="btn" (click)="show_delete = false" >Cancelar</button>
+    </div>
+
+</div>
+
+<div class="container" *ngIf="loading && display_main "> 
+    <span class="icon icon-loading loading"></span>
+</div>

@@ -1,0 +1,100 @@
+@import '../../../../theme/variables';
+
+.temp-planes{
+    display: grid;
+    background: white;
+    grid-template: 
+    "header" 60px 
+    "body" auto/
+    100%;
+}
+
+.header{
+    grid-area: header;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 0px auto;
+    align-items: center;
+    padding: 5px 10px;
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.12);
+}
+
+.body{
+    grid-area: body;
+    display: grid;
+    padding: 15px;
+    grid-gap: 35px;
+}
+
+
+.free{
+    display: grid;
+    align-content: start;
+    grid-gap: 30px;
+    .plan{
+        height: 52px;
+        width: 100%;
+        background-color: $neutro-100;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 10px;
+    }
+
+    
+
+}
+
+.card_plan_premium{
+    height: 372px;
+    width: 100%;
+    background: -webkit-linear-gradient(100.79deg, #FCD036 1.44%, #E3D232 107.17%);
+    box-shadow: 0px 2px 12px rgba(252, 208, 54, 0.36);
+    border-radius: 24px;
+    padding: 10px;
+    display: grid;
+    align-content: start;
+    grid-gap:15px;
+    grid-template-rows: 50px auto 40px;
+    .price{
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: 10px;
+        justify-self: end;
+        align-self: start;
+        h1{
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .rebaja{
+            align-self: center;
+            text-decoration: line-through
+        }
+    }
+
+    .content{
+        display: grid;
+        grid-gap: 25px;
+        .sections{
+            display: grid;
+            grid-gap: 5px;
+            span{
+                justify-self: center;
+            }
+            grid-template-columns: 20px auto;
+        }
+
+        .btn-adquirir{
+            background-color: #fff;
+            font-weight: 600 !important;
+        }
+    }
+}
+

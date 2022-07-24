@@ -1,0 +1,153 @@
+@import '../../../theme/variables';
+
+.temp-help{
+    display: grid;
+    height: 100%;
+    min-height: 100%;
+    backdrop-filter: blur(8px);
+    background-color: rgba(255,255,255,.85);
+    position: relative;
+    grid-template: 
+    "body" auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+
+
+.body{
+    grid-area: body;
+    display: grid;
+    padding: 15px;
+    grid-gap: 20px;
+    justify-items: center;
+    grid-template-rows: auto 80px;
+    position: relative;
+
+}
+
+.section{
+    display: grid;
+    max-width: 300px;
+    grid-template-rows: 90px auto;
+    h4{
+        text-align: center;
+    }
+
+    .content-img{
+        display: grid;
+        place-self: center;
+        position: relative;
+        max-width: max-content;
+        max-height: max-content;
+    }
+    
+
+
+    &-1{
+        @extend .section;
+
+        .touch{
+            position: absolute;
+            bottom: -30px;
+            right: 5px;
+        }
+    }
+
+    &-3{
+        @extend .section;
+
+        .touch{
+            position: absolute;
+            bottom: 45px;
+            right: 22px;
+        }   
+
+        .card-over{
+            position: absolute;
+            z-index: 2;
+        }
+    }
+
+    &-4{
+        @extend .section;
+        .touch{
+            position: absolute;
+            bottom: 45px;
+            right: 100px;
+        } 
+
+        .card-over{
+            position: absolute;
+            z-index: 2;
+        }
+    }
+
+    &-5{
+        @extend .section;
+        .touch{
+            position: absolute;
+            bottom: 45px;
+            right: 180px;
+        } 
+
+        .card-over{
+            position: absolute;
+            z-index: 2;
+        }
+    }
+
+    &-6{
+        @extend .section;
+        .content-img{
+            display: grid;
+            place-self: end;
+        }
+
+        .touch{
+            position: absolute;
+            bottom: -40px;
+            right: -15px;
+            
+        } 
+    }
+
+    &-7{
+        @extend .section;
+        .content-img{
+            display: grid;
+            align-self: start;
+        }
+
+        .touch{
+            position: absolute;
+            bottom: -40px;
+            left: 15px;
+        }
+    }
+
+    &-8{
+        @extend .section;
+        .content-img{
+            position: absolute;
+            top: 10px;
+            right: -20px;
+        }
+
+        .touch{
+            position: absolute;
+            bottom: -40px;
+            right: 0px;
+        }
+    }
+
+}
+
+.control-btn{
+    width: 100%;
+    display: grid;
+    grid-gap: 10px;
+}

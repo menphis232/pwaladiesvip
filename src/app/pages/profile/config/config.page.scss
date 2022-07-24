@@ -1,0 +1,138 @@
+@import '../../../../theme/variables';
+
+.temp-config{
+    display: grid;
+    background: white;
+
+    grid-template: 
+    "header" 60px 
+    "body" auto/
+    100%;
+}
+
+.header{
+    grid-area: header;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 0px auto;
+    align-items: center;
+    padding: 5px 10px;
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.12);
+}
+
+.body{
+    grid-area: body;
+    display: grid;
+    padding: 20px;
+    grid-gap: 35px;
+}
+
+.cerrar{
+    background-color: $neutro-50;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    color: $alerts-error;
+}
+
+.section{
+    display: grid;
+    align-content: start;
+    grid-gap: 5px;
+
+    .title{
+        background-color: $neutro-100;
+        padding: 15px 10px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+    }
+
+    button{
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    div{
+        padding: 10px 15px;
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+
+
+.alert{
+    backdrop-filter: none;
+    backdrop-filter: blur(8px);
+
+    .close{
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
+
+    *{
+        color: white;
+    }
+    position: absolute;
+    z-index: 5;
+    .content{
+        display: grid;
+        grid-gap: 20px;
+        justify-items: center;
+        width: 240px;
+        text-align: center;
+        h1{
+            font-weight: 500;
+        }
+
+        .premium{
+            background-color: #F59E0B;
+        }
+    }
+
+}
+
+
+.alert{
+    backdrop-filter: none;
+    backdrop-filter: blur(8px);
+
+    .close{
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
+
+    *{
+        color: white;
+    }
+    position: absolute;
+    z-index: 5;
+    .content{
+        display: grid;
+        grid-gap: 20px;
+        justify-items: center;
+        width: 240px;
+        text-align: center;
+        h1{
+            font-weight: 500;
+        }
+
+        .premium{
+            background-color: #F59E0B;
+        }
+    }
+
+}
+
+.card-option{
+    position: fixed;
+}

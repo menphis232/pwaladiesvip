@@ -1,0 +1,69 @@
+<div class="template-notify">
+    <div class="grid ">
+        <h1 class="font-600 text-black"> {{"notificaciones.titulo" | translate}} </h1>
+    </div>
+
+    <div class="content-notify">
+
+        <!-- <div class="card-notify">
+
+            <div class="card-notify-img">
+                <img src="../../../assets/img/pack-gold.png">
+            </div>
+
+            <div>
+                <p>Prueba el Pack de anuncios Standard, el primer mes es gratis!</p>
+            </div>
+
+        </div> -->
+
+        <div class="card-notify-sms" *ngFor="let item of notifys" >
+
+            <div class="card-notify-img">
+                <img src="../../../assets/img/pack-gold.png">
+            </div>
+
+            <div class="card-notify-content-sms" *ngIf="item.tipo == 1" >
+                <p class="title" >Renueva tu paquete</p>
+                <p class="content" >Tu paquete está proximo a vencer, renuevalo.</p>
+            </div>
+
+            <div class="card-notify-content-sms" *ngIf="item.tipo == 2" >
+                <p class="title" >Renueva tu plan</p>
+                <p class="content" >Tu plan está proximo a vencer, renuevalo.</p>
+            </div>
+
+            <div class="card-notify-content-sms" *ngIf="item.tipo == 4" >
+                <p class="title" >Prueba un mes gratis</p>
+                <p class="content" >Obtén el plan Standar gratis por un mes.</p>
+            </div>
+
+            <div class="grid align-items-center" *ngIf="item.tipo == 1">
+                <button class="btn-primary-inv" (click)="GoPlacks()" >{{"notificaciones.btn_renovar" | translate}}</button>
+            </div>
+
+            <div class="grid align-items-center" *ngIf="item.tipo == 2">
+                <button class="btn-primary-inv" (click)="GoPlan()" >{{"notificaciones.btn_renovar" | translate}}</button>
+            </div>
+
+            <div class="grid align-items-center" *ngIf="item.tipo == 4">
+                <button class="btn-primary-inv" (click)="GoPlacks()" >Contratar</button>
+            </div>
+
+        </div>
+
+        <!-- <div class="card-notify">
+
+            <div class="card-notify-img">
+                <img src="../../../assets/img/pack-gold.png">
+            </div>
+
+            <div>
+                <p>Prueba el Pack de anuncios Standard, el primer mes es gratis!</p>
+            </div>
+
+        </div> -->
+
+    </div>
+
+</div>

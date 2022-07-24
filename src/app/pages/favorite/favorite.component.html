@@ -1,0 +1,41 @@
+
+<div class="temp-fav">
+
+    <div class="header" >
+        <button class="btn" routerLink=".."> <span class="icon icon-chevron-left"></span> </button>
+        <h3 class="font-500 justify-self-center">{{"favoritos.titulo" | translate}}</h3>
+
+    </div>
+
+    <div class="body">
+        <div class="group-input-icon-left">
+            <span class="icon icon-search"></span>
+            <input type="text" class="search" [placeholder]=" 'filtro.buscar' | translate ">
+        </div>
+
+        <div class="anuncio" *ngFor="let item of favoritos; let i =index"  >
+            <div class="content-img" (click)="OpenShow(item.anuncio)">
+                <img [src]="showImage(item.anuncio.urls)" alt="">
+            </div>
+
+            <div class="content" (click)="OpenShow(item)">
+                <h3> {{item.anuncio.user.name}} </h3>
+
+                <p> {{GetEdad(item.anuncio.user.fecha_nac)}} {{"show_anuncio.anios" | translate}} • {{item.anuncio.user.ciudad}}, {{item.anuncio.user.pais}}</p>
+            </div>
+
+            <div class="option" style="position: relative;">
+                <button [class]="'btn '+ item " id="btnToggle" (click)="ToggleOptionTable(i)" ><span class="icon icon-dots-horizontal"></span></button>
+
+                <div class="table-options"  [id]="i" >
+                    <button (click)="Delete(item.id)" > <i class="icon icon-trash"></i>{{"favoritos.delete" | translate}} </button>
+                </div>
+            </div> 
+        </div>
+
+    </div>
+</div>
+
+<div class="container" *ngIf="loading"> 
+    <span class="icon icon-loading loading"></span>
+</div>

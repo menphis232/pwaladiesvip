@@ -1,0 +1,13 @@
+{
+	"appId": "io.ladiesVIP.alaxa",
+	"appName": "LadiesVip",
+	"webDir": "www",
+	"bundledWebRuntime": false,
+	"plugins":{
+		"GoogleAuth":{
+			"scopes":["profile","email"],
+			"serverClientId":"1056782232823-ifeii1n4ijap9hv190vj30gsrper7e6s.apps.googleusercontent.com",
+			"forceCodeForRefreshToken":true
+		}
+	}
+}

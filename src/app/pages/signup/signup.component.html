@@ -1,0 +1,483 @@
+<div class="temp-signup" *ngIf="fase < 2">
+
+    <div class="section-top">
+        <img class="fondo" src="../../../assets/img/bg-top.png" alt="">
+        <h1>{{"crear_cuenta.titulo" | translate}}</h1>
+
+        <div class="subcard-18">
+            <h1 >+18</h1>
+            <h5>{{"crear_cuenta.card_18" | translate}}</h5>
+        </div>
+    </div>
+
+    <div class="section-content">
+
+        <!-- ! FASE 1 ======================================== -->
+        <div class="fase-1" *ngIf="fase == 0">
+            <div>
+                <div class="form-group">
+                    <label for="">{{"crear_cuenta.nombre" | translate}}</label>
+                    <input 
+                        type="text" 
+                        [placeholder]="'crear_cuenta.ph_nombre' | translate"
+                        (keyup)="[SoloLetra($event),CanSignUp()]"  
+                        [(ngModel)]="usuario.datos.nombre"
+                    >
+                </div>
+        
+                <div class="form-group">
+                    <label for="">{{"crear_cuenta.correo" | translate}}</label>
+                    <input 
+                        type="text" 
+                        [placeholder]="'crear_cuenta.ph_correo' | translate"
+                        [(ngModel)]="usuario.datos.correo"
+                        (keyup)="CanSignUp()"  
+                    >
+                </div>
+    
+                <div class="form-group">
+                    <label for="">{{"crear_cuenta.telefono" | translate}}</label>
+                    <div class="input-group-append">
+                        <button (click)="display_telf = true" > {{country_short_name}}  <span style="font-size: 5px;" class="icon icon-chevron-down"></span></button>
+                        <input type="text"
+                            inputmode="numeric" 
+                            pattern="[-+]?[0-9]*[.,]?[0-9]+"
+                            [placeholder]="'crear_cuenta.ph_numero' | translate"
+                            [(ngModel)]="usuario.datos.telefono"
+                            (keyup)="CanSignUp()" 
+                            (keypress)="SoloNumero($event)" 
+                            maxlength="14"
+                        >
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="">{{"crear_cuenta.contrasena" | translate}}</label>
+                    <div class="group-input-icon-right">
+                        <span class="icon" [ngClass]="viewPass?'icon-eyes':'icon-eyes-close'" (click)="tooglePass(true)" ></span>
+                        <input 
+                            type="text" 
+                            [placeholder]="'crear_cuenta.ph_contrasena' | translate"
+                            [type]="viewPass ? 'text' : 'password'"
+                            [(ngModel)]="usuario.datos.clave"
+                            (keyup)="CanSignUp()"  
+                            maxlength="25"
+                        >
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="">{{"crear_cuenta.re_contrasena" | translate}} </label>
+                    <div class="group-input-icon-right">
+                        <span class="icon" [ngClass]="viewRePass?'icon-eyes':'icon-eyes-close'" (click)="tooglePass(false)" ></span>
+                        <input 
+                            [type]="viewRePass ? 'text' : 'password'"
+                            [placeholder]="'crear_cuenta.ph_re_contrasena' | translate"
+                            (keyup)="CanSignUp()"  
+                            maxlength="25"
+                            [(ngModel)]="rep_clave" 
+                        >
+                    </div>
+                </div>
+
+                <p class="text-error" *ngIf="error==1">{{"crear_cuenta.err_1" | translate}}</p>
+                <p class="text-error" *ngIf="error==2">{{"crear_cuenta.err_2" | translate}}</p>
+                <p class="text-error" *ngIf="error==3">{{"crear_cuenta.err_3" | translate}}</p>
+                <p class="text-error" *ngIf="error==4">{{"crear_cuenta.err_4" | translate}}</p>
+                <p class="text-error" *ngIf="error==5">{{"crear_cuenta.err_5" | translate}}</p>
+                <p class="text-error" *ngIf="error==6">{{"iniciar_sesion.alert_del.titulo" | translate}}</p>
+    
+                <div class="checkbox-group">
+                    <input type="checkbox" checked="true" id="session-open">
+                    <label for="session-open"> {{"crear_cuenta.recordar" | translate}}</label>
+                </div>
+    
+                <button 
+                    class="btn-primary btn-block" 
+                    [ngClass]="canSignUp?'btn-primary':'btn-disable'"
+                    (click)="(!loading) && CrearCuenta()"
+                > {{"crear_cuenta.btn_crear" | translate}}  <span *ngIf="loading" class="icon icon-loader"></span></button>
+    
+            </div>
+    
+            <div class="other-logins">
+                <div class="group-line-h">
+                    <div class="line-h"> </div>
+                    <h3> {{"crear_cuenta.otros_inicios" | translate}} </h3>
+                    <div class="line-h"> </div>
+                </div>
+    
+                <div class="group-logins justify-content-center">
+                    <button class="btn-type-login" (click)="signInFacebook()" > <img src="../../../assets/img/Facebook.png" alt="">  </button>
+                    <button class="btn-type-login" (click)="signInGoogle()" > <img src="../../assets/img/Google.png" alt="">  </button>
+                    <button class="btn-type-login" (click)="SignUpSms()" > <img src="../../assets/img/Phone.png" alt="">  </button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ! FASE 2 ======================================== -->
+        <div class="fase-2" *ngIf="fase == 1">
+                <h4 class="align-self-start">{{"recuperar_contrasena.fase_correo.parrafo_codigo" | translate}}  {{usuario.datos.correo}} </h4>
+
+                <div class="grid gap-10">
+                    <div class="group-input-code">
+                        <input type="text" 
+                            inputmode="numeric" 
+                            pattern="[-+]?[0-9]*[.,]?[0-9]+" 
+                            name="code0" 
+                            [(ngModel)]="code_1" 
+                            (keyup)="nextInput($event,'code1')" 
+                            (keypress)="SoloNumero($event)"  
+                            placeholder="Ingresar número" 
+                            placeholder="0" maxlength="1"
+                        >
+                        <input type="text" name="code1" [(ngModel)]="code_2" inputmode="numeric" pattern="[-+]?[0-9]*[.,]?[0-9]+" (keyup)="nextInput($event,'code2')" (keypress)="SoloNumero($event)" placeholder="Ingresar número" placeholder="0" maxlength="1">
+                        <input type="text" name="code2" [(ngModel)]="code_3" inputmode="numeric" pattern="[-+]?[0-9]*[.,]?[0-9]+" (keyup)="nextInput($event,'code3')" (keypress)="SoloNumero($event)" placeholder="Ingresar número" placeholder="0" maxlength="1">
+                        <input type="text" name="code3" [(ngModel)]="code_4" inputmode="numeric" pattern="[-+]?[0-9]*[.,]?[0-9]+" (keyup)="nextInput($event,'code4')" (keypress)="SoloNumero($event)" placeholder="Ingresar número" placeholder="0" maxlength="1">
+                        <input type="text" name="code4" [(ngModel)]="code_5" inputmode="numeric" pattern="[-+]?[0-9]*[.,]?[0-9]+" (keypress)="SoloNumero($event)" placeholder="Ingresar número" placeholder="0" maxlength="1">
+                    </div>
+                    <p *ngIf="error == 1" class="text-error">{{"crear_cuenta.err_7" | translate}}</p> 
+
+
+                    <div class="grid align-items-center" style="grid-auto-flow: column;">
+                        <h5>{{"recuperar_contrasena.titulo_recibir" | translate}}</h5>
+                        <button 
+                            [class]="true? 'btn-reenviar':'btn-reenviar-disable'" 
+                            (click)="(re_code) && EnviarCodigo()"
+                        > {{"recuperar_contrasena.reenviar" | translate}} <span *ngIf="!re_code">({{"recuperar_contrasena.wait" | translate}})</span> </button>
+                    </div>
+                </div>
+
+            <button 
+                    class=" btn-block" 
+                    [class]="true ? 'btn-primary':'btn-primary'"
+                    (click)="VerificarCodigoSMS()"
+            >
+            {{"crear_cuenta.btn_continuar" | translate}} <span *ngIf="loading" class="icon icon-loader"></span>
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="bg-white grid justify-items-center" *ngIf="fase >=2">
+    <div class="section-uno" *ngIf="fase == 2">
+        <h1 class="font-500">{{"crear_cuenta.fase_0.titulo" | translate}}</h1>
+        <h4>{{"crear_cuenta.fase_0.parrafo" | translate}}</h4>
+        <button
+                class="btn-primary btn-circle"
+                (click)="fase = 3"
+        ><i class="icon icon-arrow-right"></i></button>
+    </div>
+
+    <!-- ! FASE FORMULARIO -->
+    <div *ngIf="fase >= 3" class="section-form">
+
+        <div class="bar-progress">
+            <div [ngClass]="[fase == 2 ? 'progres-now':'', fase > 2? 'progres-primary':'', fase <2?'progres-prox':'']"></div>
+            <div [ngClass]="[fase == 3 ? 'progres-now':'', fase > 3? 'progres-primary':'', fase <3?'progres-prox':'']"></div>
+            <div [ngClass]="[fase == 4 ? 'progres-now':'', fase > 4? 'progres-primary':'', fase <4?'progres-prox':'']"></div>
+            <div [ngClass]="[fase == 5 ? 'progres-now':'', fase > 5? 'progres-primary':'', fase <5?'progres-prox':'']"></div>
+            <div [ngClass]="[fase == 6 ? 'progres-now':'', fase > 6? 'progres-primary':'', fase <6?'progres-prox':'']"></div>
+            <div [ngClass]="[fase == 7 ? 'progres-now':'', fase > 7? 'progres-primary':'', fase <7?'progres-prox':'']"></div>
+            <div [ngClass]="[fase == 8 ? 'progres-now':'', fase > 8? 'progres-primary':'', fase <8?'progres-prox':'']"></div>
+        </div>
+
+        <div class="grid" *ngIf="fase == 3">
+            <div class="grid gap-20 align-self-start">
+                <h1 class="form-title">{{"crear_cuenta.fase_1.titulo" | translate}}</h1>
+
+                <div class="form-group">
+                    <input type="date" (change)="(VacioU(usuario.fecha))? pass=true:pass=false " [(ngModel)]="usuario.fecha_nac">
+                    <p class="text-error" *ngIf="error == 1">{{"crear_cuenta.err_6" | translate}}</p>  
+                    <p class="text-error" *ngIf="error == 2"> {{"crear_cuenta.fase_1.err_p1" | translate:{value:edad} }} </p>  
+                    <p class="text-error" *ngIf="error == 2"> {{"crear_cuenta.fase_1.err_p2" | translate}} </p>
+                </div>
+            </div>
+
+            <h5>{{"crear_cuenta.fase_1.parrafo" | translate}}</h5>
+        </div>
+
+        <div class="grid" *ngIf="fase == 4">
+            <h1 class="form-title">{{"crear_cuenta.fase_2.titulo" | translate}}</h1>
+
+            <div class="form-location">
+                <div class="form-group">
+                    <label for=""> {{"crear_cuenta.fase_2.pais" | translate}} </label>
+                    <button class="btn" > Spain <span class="icon "></span> </button>
+                </div>
+    
+                <div class="form-group">
+                    <label for=""> {{"crear_cuenta.fase_2.estado" | translate}} </label>
+                    <button class="btn" (click)=" (usuario.locacion.pais) && display_estado = true" > {{usuario.locacion.estado}} <span class="icon icon-chevron-down"></span> </button>
+   
+                </div>
+    
+                <div class="form-group">
+                    <label for=""> {{"crear_cuenta.fase_2.ciudad" | translate}}  </label>
+                    <button class="btn" (click)=" (usuario.locacion.estado) && display_ciudad = true" > {{usuario.locacion.ciudad}} <span class="icon icon-chevron-down"></span> </button>
+                </div>
+            </div>
+            <p class="text-error" *ngIf="error == 1">{{"crear_cuenta.err_6" | translate}}</p>
+
+            <h5>{{"crear_cuenta.fase_2.parrafo" | translate}}</h5>
+        </div>
+
+         <!-- ? IDENTIFICACION DE GENERO -->
+         <div class="grid" *ngIf="fase == 5">
+            <h1 class="form-title">{{"crear_cuenta.fase_3.titulo" | translate}}</h1>
+
+            <h5 class="font-300">{{"crear_cuenta.fase_3.parrafo" | translate}}</h5>
+
+            <div class="group-btn-identidad">
+                <button class="btn-genero" (click)="selectIdentidad(0,$event)"> {{"identidad.upt_0" | translate}} </button>
+                <button class="btn-genero" (click)="selectIdentidad(1,$event)">{{"identidad.upt_1" | translate}}</button>
+                <button class="btn-genero" (click)="selectIdentidad(2,$event)">{{"identidad.upt_2" | translate}}</button>
+                <!-- <button class="btn-genero" (click)="selectIdentidad(3,$event)">Pareja</button> -->
+                <button class="btn-genero" (click)="selectIdentidad(4,$event)">{{"identidad.upt_4" | translate}}</button>
+                <button class="btn-genero" (click)="selectIdentidad(5,$event)">{{"identidad.upt_5" | translate}}</button>
+                <button class="btn-genero" (click)="selectIdentidad(6,$event)">{{"identidad.upt_6" | translate}}</button>
+                <button class="btn-genero" (click)="selectIdentidad(7,$event)">{{"identidad.upt_7" | translate}}</button>
+                <button class="btn-genero" (click)="selectIdentidad(8,$event)">{{"identidad.upt_8" | translate}}</button>
+            </div>
+            <p class="text-error" *ngIf="error == 1"> {{"crear_cuenta.fase_3.err" | translate}} </p>
+
+        </div>
+
+
+        <!-- ? CARGAR FOTO PERFIL -->
+        <div class="grid justify-items-center" *ngIf="fase == 6">
+            <h1 class="form-title">{{"crear_cuenta.fase_4.titulo" | translate}}</h1>
+            <div class="content-circle-img">
+                <div class="circle-img" >
+                    <img *ngIf="user_imagen_show == null"  src="../../../assets/img/user.png"  alt="">
+                    <img [src]="user_imagen_show" alt="">
+                </div>
+                <button (click)="[CargarImagen()]" class="sub-circle-img">+</button>
+            </div>
+            <p class="text-error" *ngIf="error == 1">{{"crear_cuenta.fase_4.err" | translate}}</p>
+
+            <input type="file" id="img"  style="display:none" accept="image/png, image/gif, image/jpeg">
+            <h5 class="text-center">{{"crear_cuenta.fase_4.parrafo" | translate}}</h5>
+        </div>
+
+        <!-- ? IDENTIFICACION DE INTERESES -->
+        <div class="grid" *ngIf="fase == 7">
+            <h1 class="form-title">{{"crear_cuenta.fase_5.titulo" | translate}}</h1>
+
+            <h5 class="font-300">{{"crear_cuenta.fase_5.parrafo" | translate}}</h5>
+
+            <div class="group-btn-identidad">
+                <button class="btn-genero" (click)="selectIdentidad(0,$event)">{{"identidad.upt_0" | translate}}</button>
+                <button class="btn-genero" (click)="selectIdentidad(1,$event)">{{"identidad.upt_1" | translate}}</button>
+                <button class="btn-genero" (click)="selectIdentidad(2,$event)">{{"identidad.upt_2" | translate}}</button>
+                <button class="btn-genero" (click)="selectIdentidad(3,$event)">{{"identidad.upt_3" | translate}}</button>
+                <button class="btn-genero" (click)="selectIdentidad(4,$event)">{{"identidad.upt_4" | translate}}</button>
+                <button class="btn-genero" (click)="selectIdentidad(5,$event)">{{"identidad.upt_5" | translate}}</button>
+                <button class="btn-genero" (click)="selectIdentidad(6,$event)">{{"identidad.upt_6" | translate}}</button>
+                <button class="btn-genero" (click)="selectIdentidad(7,$event)">{{"identidad.upt_7" | translate}}</button>
+                <button class="btn-genero" (click)="selectIdentidad(8,$event)">{{"identidad.upt_8" | translate}}</button>
+                <button class="btn btn-genero" (click)="selectServicio(0,$event)">{{"servicios.upt_0" | translate}}</button>
+                <button class="btn btn-genero" (click)="selectServicio(1,$event)">{{"servicios.upt_1" | translate}}</button>
+                <button class="btn btn-genero" (click)="selectServicio(2,$event)">{{"servicios.upt_2" | translate}}</button>
+                <button class="btn btn-genero" (click)="selectServicio(3,$event)">{{"servicios.upt_3" | translate}}</button>
+                <button class="btn btn-genero" (click)="selectServicio(4,$event)">{{"servicios.upt_4" | translate}}</button>
+
+            </div>
+
+        </div>
+
+        <!-- ? SERVICIO A OFRECER -->
+        <div class="grid" *ngIf="fase == 8">
+            <h1 class="form-title">{{"crear_cuenta.fase_6.titulo" | translate}}</h1>
+
+            <h5 class="font-300">{{"crear_cuenta.fase_6.titulo" | translate}}</h5>
+
+            <div class="group-btn-identidad">
+                <button class="btn-genero" (click)="selectServicio(0,$event)">{{"servicios.upt_0" | translate}}</button>
+                <button class="btn-genero" (click)="selectServicio(1,$event)">{{"servicios.upt_1" | translate}}</button>
+                <button class="btn-genero" (click)="selectServicio(2,$event)">{{"servicios.upt_2" | translate}}</button>
+                <button class="btn-genero" (click)="selectServicio(3,$event)">{{"servicios.upt_3" | translate}}</button>
+                <button class="btn-genero" (click)="selectServicio(4,$event)">{{"servicios.upt_4" | translate}}</button>
+            </div>
+
+        </div>
+
+        <!-- ? GEOLOCALIZACION -->
+        <div class="grid justify-items-center" *ngIf="fase == 9">
+            <h1 class="form-title">{{"crear_cuenta.fase_7.titulo" | translate}}</h1>
+
+            <h1><i style="font-size: 48px;" class="icon icon-location"></i></h1>
+            <h5 class="text-center">{{"crear_cuenta.fase_7.parrafo" | translate}}</h5>
+        </div>
+
+        <!-- ? LOAD -->
+        <div class="grid justify-items-center align-items-center" *ngIf="fase == 10">
+            <img class="icon-loader" src="../../../assets/img/loading.png" alt="">
+        </div>
+
+        <div class="grid gap-10 align-content-start justify-self-stretch">
+            <button *ngIf="fase == 9" (click)="ActivarGeo()" class="btn-primary btn-block">{{"crear_cuenta.fase_7.activar" | translate}}</button>
+            <button *ngIf="fase == 9" (click)="SignUp()" class="btn-secondary btn-block">{{"crear_cuenta.fase_7.rechazar" | translate}}</button>
+        </div>
+    </div>
+
+    <button
+        class="btn-primary btn-circle"
+        *ngIf="fase < 9 && fase > 2"
+        (click)="CtrlForm()"
+        [class]="pass?'btn-primary btn-circle':'btn-disable btn-circle'"
+    ><span class="icon icon-arrow-right"></span></button>
+
+    <button *ngIf="fase == 8" class="btn font-600" (click)="fase = 9" >{{"crear_cuenta.fase_6.saltar" | translate}}</button>
+    
+</div>
+
+
+<!-- ! FILTRO =================================================================== -->
+
+<div class="bg-card fadeIn"  *ngIf="display_telf">
+    <div class="card-option onUp" >
+        <div class="card-option-header">
+            <button class="btn justify-self-end"> <span class="icon"></span> </button>
+
+            <h3 class=" justify-self-center text-center font-600">{{"crear_cuenta.cod_tel" | translate}}</h3>
+
+            <button class="btn justify-self-end" (click)="CerrarModal()"> <span class="icon icon-close"></span> </button>
+        </div>
+
+        <div class="card-option-search">
+            <div class="group-input-icon-left">
+                <span class="icon icon-search"></span>
+                <input type="text" [(ngModel)]="filtro" (keyup)="filtrar()" placeholder="Buscar">
+            </div>
+        </div>
+
+        <div class="card-option-body" *ngIf="telf_filtro.length == 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let locacion of locaciones;let i = index">
+                <label [for]="i"> {{locacion.country_name}}  ( {{locacion.country_phone_code}} )</label>
+                <input (click)="SelectCodeTlf(locacion.country_phone_code, locacion.country_short_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+        <div class="card-option-body" *ngIf="telf_filtro.length != 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let locacion of telf_filtro;let i = index">
+                <label [for]="i"> {{locacion.country_name}}  ( {{locacion.country_phone_code}} )</label>
+                <input (click)="SelectCodeTlf(locacion.country_phone_code, locacion.country_short_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ? PAIS ============================================== -->
+<div class="bg-card fadeIn"  *ngIf="display_pais">
+    <div class="card-option onUp" >
+        <div class="card-option-header">
+            <button class="btn justify-self-end"> <span class="icon"></span> </button>
+
+            <h3 class=" justify-self-center text-center font-600">{{"crear_cuenta.fase_2.pais" | translate}}</h3>
+
+            <button class="btn justify-self-end" (click)="CerrarModal()"> <span class="icon icon-close"></span> </button>
+        </div>
+
+        <div class="card-option-search">
+            <div class="group-input-icon-left">
+                <span class="icon icon-search"></span>
+                <input type="text" [(ngModel)]="filtro" (keyup)="filtrar()" placeholder="Buscar">
+            </div>
+        </div>
+
+        <div class="card-option-body" *ngIf="pais_filtro.length == 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let locacion of locaciones;let i = index">
+                <label [for]="i"> {{locacion.country_name}}</label>
+                <input (click)="SelectPais( locacion.country_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+        <div class="card-option-body" *ngIf="pais_filtro.length != 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let locacion of pais_filtro;let i = index">
+                <label [for]="i"> {{locacion.country_name}} </label>
+                <input (click)="SelectPais( locacion.country_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ? ESTADO ============================================== -->
+<div class="bg-card fadeIn"  *ngIf="display_estado">
+    <div class="card-option onUp" >
+        <div class="card-option-header">
+            <button class="btn justify-self-end"> <span class="icon"></span> </button>
+
+            <h3 class=" justify-self-center text-center font-600">{{"crear_cuenta.fase_2.estado" | translate}}</h3>
+
+            <button class="btn justify-self-end" (click)="CerrarModal()"> <span class="icon icon-close"></span> </button>
+        </div>
+
+        <div class="card-option-search">
+            <div class="group-input-icon-left">
+                <span class="icon icon-search"></span>
+                <input type="text" [(ngModel)]="filtro" (keyup)="filtrar()" placeholder="Buscar">
+            </div>
+        </div>
+        <div *ngIf="loading" class="loading"></div>
+        <div class="card-option-body" *ngIf="estado_filtro.length == 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let estado of estados;let i = index">
+                <label [for]="i"> {{estado.state_name}}</label>
+                <input (click)="SelectEstado( estado.state_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+        <div class="card-option-body" *ngIf="estado_filtro.length != 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let estado of estado_filtro;let i = index">
+                <label [for]="i"> {{estado.state_name}} </label>
+                <input (click)="SelectEstado( estado.state_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ? CIUDAD ============================================== -->
+<div class="bg-card fadeIn"  *ngIf="display_ciudad">
+    <div class="card-option onUp" >
+        <div class="card-option-header">
+            <button class="btn justify-self-end"> <span class="icon"></span> </button>
+
+            <h3 class=" justify-self-center text-center font-600">{{"crear_cuenta.fase_2.ciudad" | translate}}</h3>
+
+            <button class="btn justify-self-end" (click)="CerrarModal()"> <span class="icon icon-close"></span> </button>
+        </div>
+
+        <div class="card-option-search">
+            <div class="group-input-icon-left">
+                <span class="icon icon-search"></span>
+                <input type="text" [(ngModel)]="filtro" (keyup)="filtrar()" placeholder="Buscar">
+            </div>
+        </div>
+
+        <div *ngIf="loading" class="loading"></div>
+
+        <h2 class="text-center" *ngIf="ciudades.length ==0">No posee, continue a la siguiente fase</h2>
+        <div class="card-option-body" *ngIf="ciudad_filtro.length == 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let ciudad of ciudades;let i = index">
+                <label [for]="i"> {{ciudad.city_name}}</label>
+                <input (click)="SelectCiudad( ciudad.city_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+        <div class="card-option-body" *ngIf="ciudad_filtro.length != 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let ciudad of ciudad_filtro;let i = index">
+                <label [for]="i"> {{ciudad.city_name}} </label>
+                <input (click)="SelectCiudad( ciudad.city_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+    </div>
+</div>

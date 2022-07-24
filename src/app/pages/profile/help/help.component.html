@@ -1,0 +1,146 @@
+<div class="temp-help">
+
+    <div class="header" >
+        <button class="btn" routerLink="../"> <span class="icon icon-chevron-left"></span> </button>
+        <h3 class="font-500 justify-self-center">Ayuda al usuario</h3>
+
+    </div>
+
+    <div class="body">
+
+        <div class="section-1" [hidden]="fase !=0">
+            <h4>{{"ayuda.part_1.parrafo" | translate}}</h4>
+            
+            <div class="content-img">
+                <img src="../../../../assets/img/help/card.png" alt="">
+
+                <div class="touch touch-anim">
+                    <img src="../../../../assets/img/help/hand.png" alt="">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="section" [hidden]="fase !=1">
+            <h4>{{"ayuda.part_2.parrafo" | translate}}</h4>
+            
+            <div class="content-img">
+                <img src="../../../../assets/img/help/card-description.png" alt="">
+
+            </div>
+
+        </div>
+
+        <div class="section-3" [hidden]="fase !=2">
+            <h4></h4>
+            
+            <div class="content-img">
+                <img src="../../../../assets/img/help/card.png" alt="">
+
+                <div class="touch touch-anim">
+                    <img src="../../../../assets/img/help/hand.png" alt="">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="section-3" [hidden]="fase !=3">
+            <h4>{{"ayuda.part_3.parrafo" | translate}}</h4>
+            
+            <div class="content-img">
+                <img src="../../../../assets/img/help/card.png" alt="">
+
+                <img class="card-over card_check-infinite" src="../../../../assets/img/help/card-check.png" alt="">
+
+                
+            </div>
+
+        </div>
+
+        <div class="section-4" [hidden]="fase !=4">
+            <h4></h4>
+            
+            <div class="content-img">
+                <img src="../../../../assets/img/help/card.png" alt="">
+
+                <div class="touch touch-anim">
+                    <img src="../../../../assets/img/help/hand.png" alt="">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="section-4" [hidden]="fase !=5">
+            <h4>{{"ayuda.part_7.parrafo" | translate}}</h4>
+            
+            <div class="content-img">
+                <img src="../../../../assets/img/help/card.png" alt="">
+                <img class="card-over card_fav-infinite" src="../../../../assets/img/help/card-fav.png" alt="">
+            </div>
+
+        </div>
+
+        <div class="section-5" [hidden]="fase !=6">
+            <h4></h4>
+            
+            <div class="content-img">
+                <img src="../../../../assets/img/help/card.png" alt="">
+
+                <div class="touch touch-anim">
+                    <img src="../../../../assets/img/help/hand.png" alt="">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="section-5" [hidden]="fase !=7">
+            <h4>{{"ayuda.part_8.parrafo" | translate}}</h4>
+            
+            <div class="content-img">
+                <img src="../../../../assets/img/help/card.png" alt="">
+
+                <img class="card-over card_diss-infinite" src="../../../../assets/img/help/card-diss.png" alt="">
+            </div>
+
+        </div>
+
+
+        <div class="section-7" [hidden]="fase !=8" >
+            <h4></h4>
+
+            <div class="content-img">
+                <img class="" src="../../../../assets/img/help/favorites.png" alt="">
+                <div class="touch touch-anim">
+                    <img src="../../../../assets/img/help/hand.png" alt="">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="section" [hidden]="fase !=9" >
+            <h4>{{"ayuda.part_5.parrafo" | translate}}</h4>
+
+            <div class="content-img">
+                <img class="" src="../../../../assets/img/help/card.png" alt="">
+            </div>
+        </div>
+
+        <div class="section-8" [hidden]="fase !=10"  >
+            <h4>{{"ayuda.part_6.parrafo" | translate}}</h4>
+            <div class="content-img">
+                <img class="" src="../../../../assets/img/help/filter.png" alt="">
+
+                <div class="touch touch-anim">
+                    <img src="../../../../assets/img/help/hand.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="control-btn">
+            <button class="btn-primary btn-block align-self-center" *ngIf="fase == 10" routerLink=".."  >{{"ayuda.btn_siguiente" | translate}}</button>
+            <button class="btn-primary btn-block align-self-center" *ngIf="fase < 10" (click)="fase=fase+1">{{"ayuda.btn_siguiente" | translate}}</button>
+        </div>
+    
+    </div>
+</div>

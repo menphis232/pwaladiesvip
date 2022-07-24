@@ -1,0 +1,268 @@
+
+input[type=checkbox]{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    padding: 0px;
+    background-color: white;
+    border-radius: 3px;
+    outline: 1.5px solid #A6A6A6;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+input[type=checkbox]:checked{
+    width: 20px;
+    height: 20px;
+    padding: 0px;
+    position: relative;
+    outline: 1.5px solid $primario-rosa-2;
+}
+input[type=checkbox]:checked+label{
+    color: $primario-rosa-2;
+}
+input[type=checkbox]:checked:before{
+    width: 15px;
+    height: 5px;
+    margin-left: 3px;
+    position: absolute;
+    top: -3px;
+    padding: 0px;
+    content: '✔';
+    font-size: 14px;
+    color: $primario-rosa-2;
+}
+
+
+
+input[type=checkbox].check-button{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 55px;
+    height: 32px;
+    padding: 0px;
+    background-color: white;
+    border-radius: 25px;
+    outline: 1px solid #A6A6A6;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    background: $neutro-100;
+    position: relative;
+    transition: all 0.5s ease 0s;
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -ms-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+}
+
+input[type=checkbox].check-button:before{
+    width: 25px;
+    top: 2px;
+    left: 2.5px;
+    height: 25px;
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    padding: 0px;
+    content: "";
+    color: $primario-rosa-2;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: all 0.25s ease 0.25s;
+}
+
+
+input[type=checkbox].check-button:checked{
+    position: relative;
+    outline: 1.5px solid $primario-rosa-2;
+    background: $primario-rosa-2;
+}
+input[type=checkbox]:checked+label{
+    color: $primario-rosa-2;
+}
+input[type=checkbox].check-button:checked:before{
+    width: 25px;
+    top: 2px;
+    height: 25px;
+    left: 21px;
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    padding: 0px;
+    content: "";
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+
+
+
+input[type=radio]{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 18px;
+    height: 18px;
+    padding: 0px;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    outline: 1.5px solid #A6A6A6;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+input[type=radio]:checked{
+    width: 18px;
+    height: 18px;
+    padding: 0px;
+    position: relative;
+    background-color:$primario-rosa-2;
+    outline: none;
+    border: 2px solid $primario-rosa-2;
+}
+input[type=radio]:checked+label{
+    color: $primario-rosa-2;
+}
+
+input[type=radio]:checked:before{
+    content: '';
+    align-self: center;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    padding: 0px;
+    font-size: 14px;
+    background-color: white;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}   
+
+
+
+
+
+
+/* * 
+*   ###################### RANGE ##################################### 
+* */
+
+.container-range{
+    position: relative;
+    height: 10px;
+    display: grid;
+    width: 100%;
+    align-content: center;
+}
+
+.line-range{
+    width: 100%;
+    height: 6px;
+    background-color: $neutro-200;
+    /* position: absolute;
+    top: 0;
+    bottom: 0; */
+}
+
+.input-error{
+    border: 1px solid $alerts-error;
+}
+
+input[type=range].range{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    position: absolute;
+    background-color: transparent;
+    pointer-events: none;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    height: 6px;
+    border: none;
+    // background-image: linear-gradient( to right ,$primario-rosa-2 0 50%, $neutro-200 50% 100%);
+    // background-size: 60% 100%;
+    // background-repeat: no-repeat;
+}
+input[type=range]::-webkit-slider-runnable-track{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 15px;
+}
+input[type=range]::-moz-range-track{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 6px;
+}
+
+input[type=range]::-ms-track{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 6px;
+}
+
+input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    background-color: $primario-rosa-2;
+    cursor: pointer;
+    pointer-events: auto;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+input[type=range]::-moz-range-thumb{
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    height: 17px;
+    width: 17px;
+    background-color: $primario-rosa-2;
+    cursor: pointer;
+    pointer-events: auto;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+input[type=range]::-ms-thumb{
+    appearance: none;
+    height: 17px;
+    width: 17px;
+    background-color: $primario-rosa-2;
+    cursor: pointer;
+    pointer-events: auto;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}

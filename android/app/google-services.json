@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "66805066171",
+    "project_id": "ladiesvip-544e3",
+    "storage_bucket": "ladiesvip-544e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:66805066171:android:ef58d412436cf157677c9e",
+        "android_client_info": {
+          "package_name": "io.ladiesVIP.alaxa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "66805066171-27d4rt1pk6bn2mc0dniiec17vm43p6t3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpyclTQSrKWOyujkgNLlZEr0XyBrbi8kY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "66805066171-27d4rt1pk6bn2mc0dniiec17vm43p6t3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "66805066171-cofb33lqfr7jam4vli249cqmj2g5986o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "io.ladiesVIP.alaxa"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:66805066171:android:dc91957e723e06ed677c9e",
+        "android_client_info": {
+          "package_name": "ladiesVip.app.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "66805066171-27d4rt1pk6bn2mc0dniiec17vm43p6t3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpyclTQSrKWOyujkgNLlZEr0XyBrbi8kY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "66805066171-27d4rt1pk6bn2mc0dniiec17vm43p6t3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "66805066171-cofb33lqfr7jam4vli249cqmj2g5986o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "io.ladiesVIP.alaxa"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,122 @@
+
+@font-face {
+	font-family: 'Ubuntu';
+	src: url("../assets/font/Ubuntu-Light.ttf");
+	font-weight: 300;
+}
+@font-face {
+	font-family: 'Ubuntu';
+	src: url("../assets/font/Ubuntu-Regular.ttf");
+	font-weight: normal;
+
+}
+@font-face {
+	font-family: 'Ubuntu';
+	src: url("../assets/font/Ubuntu-Medium.ttf");
+	font-weight: 500;
+}
+@font-face {
+	font-family: 'Ubuntu';
+	src: url("../assets/font/Ubuntu-Bold.ttf");
+	font-weight: 600;
+}
+
+@function calculateRem($size){
+    $remSize:$size / 16px;
+    @return $remSize * 1rem;
+}
+@mixin font-size($size){
+    font-size: $size;
+    font-size: calculateRem($size);
+    line-height: calculateRem($size)*1.5;
+}
+
+*{
+	font-family: Ubuntu;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;	
+	font-weight:400;
+	color: $neutro-600;
+    @include font-size(16px);
+}
+html{
+	min-height:100%;
+    background-color: #fff;
+}
+
+body{
+    display: grid;
+	min-height: 100%;
+	font-family: Ubuntu;
+	@include font-size(16px);
+	color: $neutro-600;
+    background-color: #fff;
+}
+
+.ion-page{
+	display: grid !important;
+	width: 100%;
+	overflow-y: auto;
+	justify-content: stretch;
+}
+
+.icon{
+    color: inherit !important;
+}
+
+h1,h2,h3,h4{margin: 0px; padding: 0px;}
+h1{@include font-size(24px);}
+h2{@include font-size(22px);}
+h3{@include font-size(19px);}
+h4{@include font-size(16px);}
+h5{@include font-size(14px);}
+
+p{
+	@include font-size(14px);	
+}
+
+label{ 
+    font-weight: 500 !important; 
+    @include font-size(14px);  
+    color: $neutro-500;
+}
+
+
+.bg-white{
+	background-color: white !important;
+}
+
+.text-error{
+    color: $alerts-error !important;
+}
+
+.text-alert{
+    color: $alerts-info !important;
+}
+
+.text-primary{
+	color: $primario-rosa-2 !important
+}
+
+/* * 
+*   ###################### FUENTES ##################################### 
+* */
+
+.font-300{
+	font-weight: 300 !important;
+}
+.font-400{
+	font-weight: 400 !important;
+}
+.font-500{
+	font-weight: 500 !important;
+}
+.font-600{
+	font-weight: 600 !important;
+}
+
+.margin-x{
+	margin: 0px auto;
+}
+

@@ -1,0 +1,327 @@
+<div class="temp-home">
+    <div class="section-content">
+
+        <div *ngIf="ctrl_menu == 0" class="content-main">
+            <!-- ! FILTRO Y POPULARES ================================================ -->
+            <div class="section-cont-populares">
+                <div class="top">
+                    <h4> {{"home.parrafo" | translate}} </h4>
+
+                </div>
+
+                <div class="center">
+
+                    <div class="content-img-popular" *ngFor="let item of carrusel" (click)="OpenAnuncioPopular(item)" >
+                        <img [src]="showImage(item.urls)" alt="">
+                    </div>
+ 
+                    <button class="btn btn-filtro" id="open_filtro" (click)="OpenFiltro()" ><span class="icon icon-filtro"></span></button>
+                </div>
+            </div>
+
+            <!-- ! FILTRO Y POPULARES ================================================ -->
+            <div class="section-cont-anuncios" >
+                <!-- !CARD  ANUNCIO============================= -->
+                <div class="card-anuncio" [id]=" 'card'+i "  #card  *ngFor="let anuncio of anuncios.data.reverse(); let i = index" >
+
+                    <div class="card-anuncio-img" (click)="OpenAnuncio(anuncio, 'card'+i)">
+                        <img [src]="showImage(anuncio.urls)" alt="">
+                    </div>
+
+                    <div class="card-anuncio-info">
+                        <div class="content-btn">
+                            <button (click)="cardDiss('card'+i,anuncio)"> <img src="../../../assets/img/anuncio_close.svg" alt=""> </button>
+                            <button (click)="cardFav('card'+i,anuncio)"> <img src="../../../assets/img/anuncio_start.svg" alt=""> </button>
+                            <button (click)="cardCheck('card'+i)"> <img src="../../../assets/img/anuncio_check.svg" alt=""> </button>
+                        </div>
+                        <div class="grid align-self-center justify-items-center">
+                            <h3 class="font-500 "> {{anuncio.usuario.name}} </h3>
+                            <h4> {{GetEdad(anuncio.usuario.fecha_nac)}}  {{"show_anuncio.anios" | translate}} . {{anuncio.usuario.estado}}, {{anuncio.usuario.pais}} </h4>
+                            <div class="info-content">
+                                <div class="section" *ngIf="anuncio.url_video != ''" >
+                                    <img src="../../../assets/img/movie.png" alt=""> 
+                                    <span> {{getCantidad(false,anuncio)}} </span>
+                                </div>
+                                <div class="section photo">
+                                    <img src="../../../assets/img/photo.png" alt="">
+                                    <span>{{getCantidad(true,anuncio)}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                </div><!-- !FINCARD =============================   -->
+            </div>
+
+        </div>
+
+
+        <app-market class="content-main-market" *ngIf="ctrl_menu == 1"></app-market>
+
+        <!-- <app-mensajes class="content-main-sms" *ngIf="ctrl_menu == 2"></app-mensajes> -->
+
+        <app-notify class="content-main-notify" *ngIf="ctrl_menu == 3"></app-notify>
+
+        <app-profile class="content-main-profile" *ngIf="ctrl_menu == 4"></app-profile>
+    </div>
+
+
+    <div class="section-menu">
+            <button [class]="ctrl_menu == 0?'active':''" id="home" (click)="nav(0)" ><span class="icon icon-home"></span></button>
+            <button [class]="ctrl_menu == 1?'active':''" id="store" (click)="nav(1)"><span class="icon icon-store"></span></button>
+            <!-- <button [class]="ctrl_menu == 2?'active':''" id="message" (click)="nav(2)"><span class="icon icon-message" ></span></button> -->
+            <button [class]="ctrl_menu == 3?'active':''" id="notificacion" (click)="nav(3)"><span class="icon icon-bell"></span></button>
+            <button [class]="ctrl_menu == 4?'active':''" id="perfil" (click)="nav(4)"><span class="icon icon-profile"></span></button>
+    </div>
+
+</div>
+
+
+<div class="container alert" *ngIf="alert == 1">
+
+    <div class="content">
+        <button class="btn close" (click)="alert = 0" ><span class="icon icon-close"></span></button>
+
+
+        <h1> {{"home.val_premium_1.titulo" | translate}}</h1>
+
+        <h4>{{"home.val_premium_1.parrafo" | translate}}</h4>
+
+        <button class="btn premium" routerLink="config/planes">{{"home.val_premium_1.btn_premium" | translate}}</button>
+    </div>
+
+</div>
+
+<!-- ! FILTRAR ============================================================= -->
+
+<div class="bg-card bg-filtro fadeIn"  *ngIf="display_filtro" >
+
+    <div class="card-option onUp" >
+        <div class="card-option-header">
+            <button *ngIf="filtro_fase == 0" (click)="LimpiarFiltro()"  class="btn clear-filtro justify-self-start"> <span class="icon  icon-trash"></span> </button>
+            <button *ngIf="filtro_fase == 0"  class="btn justify-self-end"> <span class="icon"></span> </button>
+            <button *ngIf="filtro_fase == 1" (click)="ReturnFiltro()"  class="btn justify-self-end"> <span class="icon icon-chevron-left"></span> </button>
+
+            <h3 class=" justify-self-center text-center font-600">{{"filtro.filtros" | translate}}</h3>
+
+            <button *ngIf="filtro_fase == 0" class="btn justify-self-end" (click)="CloseFiltro()" > <span class="icon icon-close"></span> </button>
+            <button *ngIf="filtro_fase == 1" (click)="LimpiarFiltroLocation()"  class="btn justify-self-end"> <span class="icon  icon-trash"></span> </button>
+
+        </div>
+
+        <div class="card-option-body" [hidden]="filtro_fase!=0">
+
+            <div class="section">
+                <div class="head">
+                    <h3 class="font-600">{{"filtro.lugar" | translate}}</h3>
+                    <button class="btn" (click)="filtro_fase = 1" > {{sel_estado}} , {{user.pais}} <span class="icon icon-chevron-right"></span> </button>
+                </div>
+            </div>
+
+            <div class="section"  [class]="show_distancia? '':'disable' " >
+                <div class="head">
+                    <h3 class="font-600">{{"filtro.distancia" | translate}} </h3>
+                    <h3> {{km}} km</h3>
+                </div>
+
+                <div class="container-range"  >
+                    <div class="line-range" ></div>
+                    <input type="range" [disabled]="!show_distancia" id="line-km" [(ngModel)]="km" class="range" min="1" max="100" >
+                </div>
+
+                <p [hidden]="show_distancia" >{{"filtro.val_distancia" | translate}}</p>
+
+            </div>
+
+            <div class="section">
+                <div class="head">
+                    <h3 class="font-600">{{"filtro.edad" | translate}} </h3>
+                    <h3> {{edad_min }} - {{edad_max}} </h3>
+                </div>
+
+                <div class="container-range">
+                    <div class="line-range" id="line-distancia"></div>
+                    <input type="range" (input)="PintarRango()" [(ngModel)]="edad_min" id="rango-distancia-min" class="range" min="18" max="60" value="18">
+                    <input type="range" (input)="PintarRango()" [(ngModel)]="edad_max" id="rango-distancia-max" class="range"min="18" max="60" value="60">
+                </div>
+
+            </div>
+
+            <div class="section">
+                <div class="head">
+                    <h3 class="font-600">{{"filtro.interes" | translate}} </h3>
+                </div>
+
+                <div class="group-btn-identidad">
+                    <button [ngClass]="filtrarSelect(0)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(0,$event)">{{"intereses.upt_0" | translate}}</button>
+                    <button [ngClass]="filtrarSelect(1)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(1,$event)">{{"intereses.upt_1" | translate}}</button>
+                    <button [ngClass]="filtrarSelect(2)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(2,$event)">{{"intereses.upt_2" | translate}}</button>
+                    <button [ngClass]="filtrarSelect(3)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(3,$event)">{{"intereses.upt_3" | translate}}</button>
+                    <button [ngClass]="filtrarSelect(4)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(4,$event)">{{"intereses.upt_4" | translate}}</button>
+                    <button [ngClass]="filtrarSelect(5)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(5,$event)">{{"intereses.upt_5" | translate}}</button>
+                    <button [ngClass]="filtrarSelect(6)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(6,$event)">{{"intereses.upt_6" | translate}}</button>
+                    <button [ngClass]="filtrarSelect(7)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(7,$event)">{{"intereses.upt_7" | translate}}</button>
+                    <button [ngClass]="filtrarSelect(8)? 'btn-genero-active':'btn-genero'" (click)="selectIdentidad(8,$event)">{{"intereses.upt_8" | translate}}</button>
+                </div>
+
+            </div>
+
+            <div class="section">
+                <button class="btn-primary btn-block" (click)="Filtrar()" >{{"filtro.filtrar" | translate}} <span *ngIf="loading" class="icon icon-loader"></span> </button>
+            </div>
+
+        </div>
+
+        <div class="card-option-body" *ngIf="filtro_fase == 1">
+
+            <div class="form-location">
+                <div class="form-group">
+                    <label for="">{{"filtro.pais" | translate}} </label>
+                    <button class="btn"  > {{user.pais}} <span class="icon icon-chevron-down"></span> </button>
+                </div>
+
+                <div class="form-group">
+                    <label for="">{{"filtro.estado" | translate}} </label>
+                    <button class="btn" (click)=" (user.pais) && display_estado = true" > {{sel_estado}} <span class="icon icon-chevron-down"></span> </button>
+   
+                </div>
+    
+                <div class="form-group">
+                    <label for="">{{"filtro.ciudad" | translate}} </label>
+                    <button class="btn" (click)="  display_ciudad = true" > {{sel_ciudad}} <span class="icon icon-chevron-down"></span> </button>
+                </div>
+            </div>
+
+
+            <div class="section">
+                <button class=" btn-block btn-primary"  (click)="filtro_fase =0" >{{"filtro.agregar" | translate}}</button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- ? ESTADO ============================================== -->
+<div class="bg-card filtros fadeIn"  *ngIf="display_estado">
+    <div class="card-option onUp" >
+        <div class="card-option-header">
+            <button class="btn justify-self-end"> <span class="icon"></span> </button>
+
+            <h3 class=" justify-self-center text-center font-600">{{"crear_cuenta.fase_2.estado" | translate}}</h3>
+
+            <button class="btn justify-self-end" (click)="CerrarModal()"> <span class="icon icon-close"></span> </button>
+        </div>
+
+        <div class="card-option-search">
+            <div class="group-input-icon-left">
+                <span class="icon icon-search"></span>
+                <input type="text" [(ngModel)]="filtro" (keyup)="filtrar()" [placeholder]="'filtro.buscar' | translate">
+            </div>
+        </div>
+        <div *ngIf="loading" class="loading"></div>
+        <div class="card-option-body" *ngIf="estado_filtro.length == 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let estado of estados;let i = index">
+                <label [for]="i"> {{estado.state_name}}</label>
+                <input (click)="SelectEstado( estado.state_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+        <div class="card-option-body" *ngIf="estado_filtro.length != 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let estado of estado_filtro;let i = index">
+                <label [for]="i"> {{estado.state_name}} </label>
+                <input (click)="SelectEstado( estado.state_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ? CIUDAD ============================================== -->
+<div class="bg-card filtros fadeIn"  *ngIf="display_ciudad">
+    <div class="card-option onUp" >
+        <div class="card-option-header">
+            <button class="btn justify-self-end"> <span class="icon"></span> </button>
+
+            <h3 class=" justify-self-center text-center font-600">{{"crear_cuenta.fase_2.ciudad" | translate}}</h3>
+
+            <button class="btn justify-self-end" (click)="CerrarModal()"> <span class="icon icon-close"></span> </button>
+        </div>
+
+        <div class="card-option-search">
+            <div class="group-input-icon-left">
+                <span class="icon icon-search"></span>
+                <input type="text" [(ngModel)]="filtro" (keyup)="filtrar()"  [placeholder]="'filtro.buscar' | translate">
+            </div>
+        </div>
+
+        <div *ngIf="loading" class="loading"></div>
+
+        <h2 class="text-center" *ngIf="ciudades.length == 0">No posee, continue a la siguiente fase</h2>
+        <div class="card-option-body" *ngIf="ciudad_filtro.length == 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let ciudad of ciudades;let i = index">
+                <label [for]="i"> {{ciudad.city_name}}</label>
+                <input (click)="SelectCiudad( ciudad.city_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+        <div class="card-option-body" *ngIf="ciudad_filtro.length != 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let ciudad of ciudad_filtro;let i = index">
+                <label [for]="i"> {{ciudad.city_name}} </label>
+                <input (click)="SelectCiudad( ciudad.city_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container alert"  *ngIf="alert_guest">
+
+    <div class="content">
+        <button class="btn close" (click)="alert_guest=false"  ><span class="icon icon-close"></span></button>
+
+        <h1>{{"home.val_gest_1.titulo" | translate}}</h1>
+
+        <h4>{{"home.val_gest_1.parrafo" | translate}}</h4>
+
+        <button class="btn premium"(click)="GoLanding()" >{{"home.val_gest_1.btn_premium" | translate}}</button>
+    </div>
+
+</div>
+
+<div class="container alert"  *ngIf="alert_max">
+    <div class="card-max-ads">
+        <button class="btn close" (click)="alert_max=false"  ><span class="icon icon-close"></span></button>
+
+        <h3 *ngIf="!guest" >{{"home.val_premium_2.titulo" | translate}}</h3>
+        <h3 *ngIf="guest" >{{"home.val_gest_1.btn_premium" | translate}}</h3>
+
+        <h5 *ngIf="!guest" >{{"home.val_gest_2.titulo" | translate}}</h5>
+        <h5 *ngIf="guest" >{{"home.val_gest_2.parrafo" | translate}}</h5>
+        <div class="content justify-items-center">
+            <button  *ngIf="!guest"  class="btn premium" routerLink="/home/config/planes" >{{"home.val_premium_2.btn_premium" | translate}}</button>
+            <button  *ngIf="guest"  class="btn premium" (click)="GoLanding()" >{{"home.val_gest_2.btn_premium" | translate}}</button>
+        </div>
+        
+    </div>
+
+</div>
+
+<div class="container alert"  *ngIf="max_fav">
+    <div class="content">
+        <button class="btn close" (click)="max_fav=false"  ><span class="icon icon-close"></span></button>
+
+        <h3  >{{"home.val_fav.titulo" | translate}}</h3>
+
+        <h5 >{{"home.val_fav.parrafo" | translate}}</h5>
+        <div class="content justify-items-center">
+            <button  class="btn premium" (click)="GoFav()" >{{"home.val_fav.btn_premium" | translate}}</button>
+        </div>
+        
+    </div>
+
+</div>
+
+<app-help-new *ngIf="new" (Cerrar)="CloseNew()" ></app-help-new>

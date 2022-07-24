@@ -1,0 +1,82 @@
+<div class="temp-planes">
+    <div class="header">
+        <button class="btn" routerLink=".."> <span class="icon icon-chevron-left"></span> </button>
+        <h2 class="font-500 justify-self-center"> {{"plan_premium.titulo" | translate}} </h2>
+    </div>
+
+    <div class="body">
+
+        <div class="free" *ngIf="!premium">
+            <div class="plan">
+                <h2 class="font-600">Ladies VIP * free</h2>
+
+                <h5>{{"plan_premium.plan_actual" | translate}}</h5>
+            </div>
+
+            <h4>{{"plan_premium.parrafo" | translate}}</h4>
+
+            <div class="card_plan_premium">
+                <div class="price justify-self-end">
+                    <h1 >€ 8.99</h1>
+                    <span>/{{"plan_premium.card_1.mes" | translate}}</span>
+                </div>
+
+                
+                <div class="content"> 
+                    <h1 class="font-600">{{"plan_premium.card_1.titulo" | translate}}</h1>
+
+                    <div class="sections">
+                        <span class="icon icon-circle-check"></span>                        
+                        <p>{{"plan_premium.card_1.check_1" | translate}}</p>
+
+                        <span class="icon icon-circle-check"></span>                        
+                        <p>{{"plan_premium.card_1.check_2" | translate}}</p>
+
+                        <span class="icon icon-circle-check"></span>                        
+                        <p>{{"plan_premium.card_1.check_3" | translate}}</p>
+
+                        <span class="icon icon-circle-check"></span>                        
+                        <p>{{"plan_premium.card_1.check_4" | translate}}</p>
+                    </div>
+
+                    <button class="btn btn-adquirir" (click)="GoPago()" >{{"plan_premium.card_1.btn_plan" | translate}}</button>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="premium" *ngIf="premium">
+
+            <div class="card_plan_premium">
+                <div class="justify-self-end">
+                    <h5 class="font-500">{{"plan_premium.plan_actual" | translate}}</h5>
+                </div>
+
+                <div class="content"> 
+                    <h1 class="font-600">Plan premium</h1>
+
+                    <div class="sections">
+                        <span class="icon icon-circle-check"></span>                        
+                        <p>{{"plan_premium.card_1.check_1" | translate}}</p>
+
+                        <span class="icon icon-circle-check"></span>                        
+                        <p>{{"plan_premium.card_1.check_2" | translate}}</p>
+
+                        <span class="icon icon-circle-check"></span>                        
+                        <p>{{"plan_premium.card_1.check_3" | translate}}</p>
+
+                        <span class="icon icon-circle-check"></span>                        
+                        <p>{{"plan_premium.card_1.check_4" | translate}}</p>
+                    </div>
+
+                    <button class="btn btn-adquirir" (click)="GoPago()" >{{"notificaciones.btn_renovar" | translate}}</button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

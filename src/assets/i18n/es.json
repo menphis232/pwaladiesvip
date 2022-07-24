@@ -1,0 +1,594 @@
+{
+    "lang": "Spanish",
+    "landing": {
+        "parrafo": "Al registrarte o iniciar sesión en Ladies VIP estás aceptando continuar de acuerdo a nuestros términos y condiciones y Políticas de privacidad",
+        "card_18": "MAYORES DE EDAD",
+        "btn_crear": "Crear cuenta",
+        "btn_iniciar": "Iniciar sesión",
+        "btn_invitado": "Iniciar como invitado",
+        "card_new": {
+            "p1": "Declaro que: \n -Soy mayor de 18 años y tengo la capacidad legal para visualizar, acceder, navegar.",
+            "p2": "-Que no permitiré que menores de 18 años tengan acceso a la aplicación.",
+            "p3": "-Que el ingreso a la categoría Adultos, es por decisión voluntaria y personal porque quiero acceder.",
+            "p4": "-Soy plenamente responsable de mi acceso, reconociendo y aceptando que puedo encontrar material inapropiados para menores de 18 años en fotos y descripciones, sin ningún impedimento legal para este acceso.",
+            "p5": "-Soy responsable de cumplir con las leyes aplicables, especialmente en lo que se refiere a la protección de la niñez y adolescencia, comprometiéndome a no utilizar esta categoría bajo formas o fines indebidos.",
+            "check_p1": "Acepto los",
+            "check_p2": "Términos y condiciones",
+            "aceptar": "Aceptar",
+            "rechazar": "Rechazar"
+        },
+        "title_lang":"Idioma"
+    },
+    "iniciar_sesion": {
+        "titulo": "Iniciar sesión",
+        "card_18": "MAYORES DE EDAD",
+        "correo": "Email",
+        "ph_correo": "Email",
+        "contrasena": "Contraseña",
+        "ph_contrasena": "Ingresar una contraseña",
+        "recordar": "Recordar contraseña",
+        "olvide": "Olvidé mi contraseña",
+        "otros_inicios": "o iniciar sesión con",
+        "err_contrasena": "Las credenciales ingresadas son incorrectas.",
+        "err_inicio": "No estás registrado. Crea una cuenta para poder comenzar en Ladies VIP.",
+        "alert_del": {
+            "titulo": "Cuenta eliminada",
+            "texto": "Tu cuenta ha sido eliminada ya que tus actividades y/o información ha incumplido con nuestros términos de uso"
+        },
+        "alert_block": {
+            "titulo": "Cuenta bloqueada",
+            "texto": "Tu cuenta ha sido bloqueada temporalmente ya que tus actividades y/o información pueden que esté en contra de nuestros términos de uso",
+            "btn_des": "Solicitar desbloqueo de cuenta",
+            "p1": {
+                "title": "Solicitud de desbloqueo de cuenta",
+                "label": "Descripción del problema",
+                "btn": "Siguiente"
+            },
+            "p2": {
+                "title": "Solicitud enviada",
+                "text": "Ladies Vip te contactará por medio de email informadote sobre tu situación"
+            }
+        }
+    },
+    "crear_cuenta": {
+        "titulo": "Crear cuenta",
+        "card_18": "MAYORES DE EDAD",
+        "nombre": "Nombre",
+        "ph_nombre": "Ingresar nombre y apellido",
+        "correo": "Email",
+        "ph_correo": "Ingresar email",
+        "telefono": "Número de teléfono",
+        "ph_codigo": "Cód.",
+        "ph_numero": "Ingresar número",
+        "contrasena": "Contraseña",
+        "ph_contrasena": "Ingresar una contraseña",
+        "re_contrasena": "Confirmar contraseña",
+        "ph_re_contrasena": "Confirmar contraseña",
+        "recordar": "Recordar contraseña",
+        "btn_crear": "Crear cuenta",
+        "otros_inicios": "o iniciar sesión con",
+        "err_1": "Complete y valide todos los campos.",
+        "err_2": "Esta cuenta ya existe.",
+        "err_3": "La contraseña es menor a 8 caracteres",
+        "err_4": "Las contraseñas no coinciden",
+        "err_5": "El correo ya está registrado.",
+        "err_6": "Llene todos los campos.",
+        "err_7": "El código ingresado no es correcto",
+        "fase_0": {
+            "titulo": "¡Bienvenido a Ladies VIP!",
+            "parrafo": "A continuación llenarás tus datos para mostrarte las mejores citas."
+        },
+        "btn_continuar": "Continuar",
+        "fase_1": {
+            "titulo": "¿Cuándo es tu cumpleaños?",
+            "parrafo": "*Esta información solo servirá para mostrarte a personas potenciales por medio de filtros",
+            "err_p1": "Tienes {{value}} años.",
+            "err_p2": "Estás tratando de crear una cuenta en Ladies VIP con una edad que no está permitida dentro de nuestras políticas de uso."
+        },
+        "fase_2": {
+            "titulo": "¿Dónde vives?",
+            "pais": "País",
+            "ph_global": "Seleccionar",
+            "estado": "Estado",
+            "ciudad": "Ciudad",
+            "parrafo": "*Esta información solo servirá para mostrarte a personas potenciales por medio de filtros"
+        },
+        "fase_3": {
+            "titulo": "¿Cómo te identificas?",
+            "parrafo": "Elige una o más opciones con las que te sientes identificado",
+            "err": "Seleccione al menos una opción"
+        },
+        "fase_4": {
+            "titulo": "Sube una foto de perfil",
+            "parrafo": "Esta foto será visible \n para todos los usuarios",
+            "err": "Select an image"
+        },
+        "fase_5": {
+            "titulo": "¿En que estás interesado?",
+            "parrafo": "Elige una, varias opciones o servicios que buscas en Ladies VIP"
+        },
+        "fase_6": {
+            "titulo": "¿Brindas algún servicio?",
+            "parrafo": "Elige una o más opciones",
+            "saltar": "Saltar opción"
+        },
+        "fase_7": {
+            "titulo": "Geolocalización",
+            "parrafo": "Selecciona el modo geolocalización para encontrar personas cercanas a ti",
+            "activar": "Activar",
+            "rechazar": "No por el momento"
+        },
+        "cod_tel": "Seleccionar código"
+    },
+    "recuperar_contrasena": {
+        "titulo": "Recuperar contraseña",
+        "card_18": "MAYORES DE EDAD",
+        "titulo_recuperar": "¿Cómo deseas recuperar tu contraseña?",
+        "correo": "Enviar un correo electrónico",
+        "SMS": "Enviar un SMS",
+        "titulo_recibir": "¿No has recibido el código?",
+        "reenviar": "Reenviar código",
+        "wait": "espere 2min",
+        "fase_correo": {
+            "titulo": "Email enviado",
+            "parrafo": "Hemos enviado un email al correo {{value}} con un código para que puedas recuperar tu contraseña ;)",
+            "parrafo_codigo": "Ingresa el código que fue enviado al correo",
+            "err_1": "El correo ingresado no existe."
+        },
+        "fase_SMS": {
+            "titulo": "SMS enviado",
+            "parrafo": "Hemos enviado un mensaje al número +{{value}} {{value1}} con un código para que puedas recuperar tu contraseña ;)",
+            "parrafo_codigo": "Ingresa el código que fue enviado al número",
+            "err_1": "El número ingresado no está registrado",
+            "err_2": "El número ingresado es invalido",
+            "err_3": "La plataforma está presentando problemas, intente mas tarde"
+        },
+        "text_clave": "Elige una contraseña más de 8 caracteres. Recomendable con un carácter especial y un carácter numérico",
+        "select_pais": "Seleccionar otro país"
+    },
+    "cambiar_contrasena": {
+        "titulo": "Cambiar contraseña",
+        "card_18": "MAYORES DE EDAD",
+        "parrafo": "Elige una contraseña más de 8 caracteres. Recomendable con un carácter especial y un carácter numérico ",
+        "err_1": "Las contraseñas no coinciden",
+        "err_2": "La contraseña es menor a 8 caracteres",
+        "contrasena": "Contraseña",
+        "ph_contrasena": "Ingresar una contraseña",
+        "recontrasena": "Confirmar contraseña",
+        "ph_recontrasena": "Confirmar contraseña",
+        "btn_continuar": "Continuar",
+        "modal": {
+            "parrafo": "¿Deseas que este dispositivo guarde tu contraseña? Al guardarlo tu inicio de sesión se iniciará automáticamente",
+            "btn_aceptar": "Aceptar",
+            "btn_rechazar": "No por el momento"
+        }
+    },
+    "crear_cuenta_telefono": {
+        "titulo": "Crear cuenta",
+        "card_18": "MAYORES DE EDAD",
+        "numero_telefono": "Número de teléfono",
+        "parrafo": "Al registrarte o iniciar sesión en Ladies VIP estás aceptando continuar de acuerdo a nuestros términos y condiciones y Políticas de privacidad",
+        "btn_continuar": "Continuar",
+        "Parrafo_codigo": "Ingresa el código que fue enviado al número",
+        "titulo_recibir": "¿No has recibido el código?",
+        "reenviar": "Reenviar código",
+        "err_1": "El código ingresado es incorrecto. Inténtelo nuevamente",
+        "err_2": "El número ingresado ya está registrado",
+        "err_3": "No estás registrado. Crea una cuenta para poder comenzar en Ladies VIP.",
+        "err_4": "llene todos los campos",
+        "err_5": "El número ingresado es invalido",
+        "err_6": "La plataforma está presentando problemas, intente mas tarde"
+    },
+    "home": {
+        "parrafo": "Miembros populares",
+        "val_premium_1": {
+            "titulo": "¿Quieres conocer a este usuario?",
+            "parrafo": "Se parte de los usuarios premium en Ladies VIP",
+            "btn_premium": "Ser premium"
+        },
+        "val_premium_2": {
+            "titulo": "¡Se premium!",
+            "parrafo": "Solo tienes un máximo de 15 vistas por día. Para acceder a más contenido, pulsa el botón y adquiere un plan",
+            "btn_premium": "Ser premium"
+        },
+        "val_gest_1": {
+            "titulo": "¿Quieres tener acceso a todo nuestro contenido?",
+            "parrafo": "Regístrate y se parte de Ladies VIP!",
+            "btn_premium": "Registrarme"
+        },
+        "val_gest_2": {
+            "titulo": "¡Regístrate!",
+            "parrafo": "Solo tienes un máximo de 15 vistas. Para acceder a más contenido, pulsa el botón y regístrate",
+            "btn_premium": "Registrarme"
+        },
+        "val_fav": {
+            "titulo": "Lista de favoritos llena!",
+            "parrafo": "Tu lista de favoritos tiene un máximo de 50 usuarios. Elimina algunos perfiles para seguir guardando",
+            "btn_premium": "Ir a favoritos"
+        }
+    },
+    "show_anuncio": {
+        "anios": "años",
+        "busco": "busco",
+        "pareja": "pareja",
+        "val_1": {
+            "titulo": "¡Se premium!",
+            "parrafo": "Actualmente cuentas con un plan free, para enviar mensajes, pulsa el botón y adquiere un plan",
+            "btn_premium": "Ser premium"
+        },
+        "val_2": {
+            "parrafo": "Se premium y accede a todos los contenidos",
+            "btn_premium": "Ser premium"
+        },
+        "val_guest": {
+            "titulo": "¿Quieres tener acceso a todo nuestro contenido?",
+            "parrafo": "Regístrate y se parte de Ladies VIP!",
+            "btn_premium": "Registrarme"
+        }
+    },
+    "market_vip": {
+        "ph_buscar": "Buscar",
+        "parrafo": "NEGOCIOS DESTACADOS",
+        "categoria": "CATEGORÍAS",
+        "cat_1": "MASAJES",
+        "cat_2": "JUGUETES",
+        "cat_3": "AGENCIA MATRIMONIAL",
+        "cat_4": "ENCUENTROS ÍNTIMOS",
+        "btn_pag": "Ir a página"
+    },
+    "notificaciones": {
+        "titulo": "Notificaciones",
+        "btn_mensaje": "Ver mensaje",
+        "btn_renovar": "Renovar",
+        "btn_actualizar": "Actualizar"
+    },
+    "perfil": {
+        "anios": "Años",
+        "btn_premium": "SER PREMIUM",
+        "btn_registrar": "REGISTRATE",
+        "btn_crear": "CREAR ANUNCIO",
+        "btn_editar": "EDITAR ANUNCIO",
+        "carrucel": {
+            "subtitle": "NUESTRAS PROMOCIONES",
+            "anuncio": "Anuncio",
+            "boost": "Renovaciones/boost",
+            "titulo_1": "Promoción Standard",
+            "titulo_2": "Promoción Plus",
+            "titulo_3": "Promoción Plus Extra"
+        }
+    },
+    "configuracion": {
+        "titulo": "Configuración",
+        "seccion_cuenta": {
+            "titulo": "CUENTA",
+            "btn_planes": "Planes",
+            "btn_pack": "Pack de anuncios",
+            "btn_pago": "Método de pago",
+            "btn_acceso": "Cuenta de acceso",
+            "btn_informacion": "Información personal",
+            "btn_negocio": "Negocio"
+        },
+        "seccion_preferencia": {
+            "titulo": "PREFERENCIAS",
+            "btn_idioma": "Idioma",
+            "btn_notificaciones": "Activar todas las notificaciones",
+            "btn_mensaje": "Recibir alertas de mensajes",
+            "btn_alerta": "Alerta 3 días antes sobre mi plan"
+        },
+        "seccion_legales": {
+            "titulo": "LEGALES",
+            "btn_privacidad": "Políticas de privacidad",
+            "btn_terminos": "Términos y condiciones",
+            "btn_ayuda": "Ayuda al usuario"
+        },
+        "btn_cerrar": "CERRAR SESIÓN",
+        "val_gest": {
+            "titulo": "¿Quieres tener acceso a todo nuestro contenido?",
+            "parrafo": "Regístrate y se parte de Ladies VIP!",
+            "btn_premium": "Registrarme"
+        },
+        "val_premium": {
+            "titulo": "¡Se premium!",
+            "parrafo": "Actualmente cuentas con un plan free, se premium y disfruta de todos los beneficios",
+            "btn_premium": "Ser premium"
+        }
+    },
+    "pack_anuncio": {
+        "title":"Pack de anuncios",
+        "etiqueta": "1 MES GRATUITO",
+        "mes": "mes",
+        "anuncio": "anuncio",
+        "fotos": "fotos",
+        "video": "video",
+        "renovaciones": "renovaciones/boost",
+        "renovacion": "renovación",
+        "at_1": {
+            "titulo_1": "Promoción Standard"
+        },
+        "at_2": {
+            "titulo": "Promoción Plus"
+        },
+        "at_3": {
+            "titulo_3": "Promoción Extra Plus"
+        },
+        "at_4": {
+            "titulo-4": "Promoción Carrusel",
+            "dias": "Por 1 día"
+        },
+        "at_5": {
+            "titulo": "Renovación por separado"
+        }
+    },
+    "pagos": {
+        "part_1": {
+            "renovar": "Renovación automática",
+            "metodo_pago": "Elegir un medio de pago",
+            "tarjeta": "Tarjeta débito/crédito",
+            "cargos":"*No se le aplicarán cargos a su tarjeta*"
+        },
+        "part_2": {
+            "total": "Total a pagar",
+            "tarjeta": "Número de tarjeta",
+            "mes": "Mes",
+            "anios": "Año",
+            "guardar": "Guardar datos para futuros pagos",
+            "btn_confirmar": "Confirmar pago"
+        },
+        "part_3": {
+            "titulo": "Pago realizado!",
+            "parrafo": "Tu pago para el paquete {{value}} se ha realizado exitosamente!",
+            "plan":"Tu plan Premium se ha agregado exitosamente!",
+            "separado":"Tu paquete por separado se ha agregado exitosamente!",
+            "btn_home": "Ir a home"
+        }
+    },
+    "plan_premium": {
+        "titulo":"Planes",
+        "plan_actual": "PLAN ACTUAL",
+        "parrafo": "¿Por qué elegir el ser premium?",
+        "card_1": {
+            "mes": "Mes",
+            "titulo": "Plan premium",
+            "check_1": "Acceso a  todos los contenidos disponibles de los anuncios",
+            "check_2": "Acceso ilimitado a todos los perfiles",
+            "check_3": "Puedes guardar a anunciantes",
+            "check_4": "Enviar y recibir mensajes de otros usuarios",
+            "btn_plan": "Adquirir plan"
+        }
+    },
+    "gestion_anuncio": {
+        "titulo": "Crear anuncio",
+        "opt_fotos": {
+            "foto": "Tienes un máximo de 10 fotos",
+            "info": "INFORMACIÓN PERSONAL",
+            "anios": "Años",
+            "ph_buscar": "Busco",
+            "ph_categoria": "Selecciona una categoría",
+            "descripcion": "Descripción:",
+            "ph_descripcion": "Escribir aquí",
+            "permiso": "PERMISOS",
+            "btn_llamada": "Enable calls",
+            "btn_chat": "Chat online",
+            "btn_whatsapp": "Habilitar WhatsApp",
+            "btn_publicar": "Publicar anuncio"
+        },
+        "opt_video": {
+            "titulo": "Crear anuncio",
+            "parrafo": "Actualmente cuentas con el Pack Standard, y con este plan no puedes subir video. Cambiate de plan para disfrutar de otros beneficios",
+            "btn_pack": "Ver pack de anuncios",
+            "btn_publicar": "Publicar anuncio"
+        },
+        "select_interes": {
+            "titulo": "Busco intereses en...",
+            "btn_agregar": "Agregar"
+        },
+        "modal": {
+            "titulo": "Anuncio en espera",
+            "parrafo_1": "Tu anuncio será revisado por un moderador para asegurar que se encuentre dentro de los términos de uso de la aplicación.",
+            "parrafo_2": "La revisión estimada es de 24 horas y se te notificará sobre el estado de tu anuncio",
+            "btn_ok": "Ok"
+        },
+        "boost": {
+            "titulo": "Hacer un boost!",
+            "parrafo": "Te quedan {{value}} renovaciones (boost). Presiona el botón para continuar",
+            "btn_hacer": "Hacer boost"
+        },
+        "boost_exitoso": {
+            "btn_exito": "Boost exitoso!"
+        },
+        "boost_error": {
+            "titulo": "Sin boost!",
+            "parrafo": "Se terminaron las renovaciones que tenías en esta promo. Actualiza y sigue disfrutando",
+            "btn_renovar": "Renovar",
+            "subtitulo": "Renovar automáticamente"
+        }
+    },
+    "ayuda": {
+        "titulo": "Ayuda al usuario",
+        "btn_siguiente": "Siguiente",
+        "btn_omitir":"Omitir",
+        "part_1": {
+            "parrafo": "Cards de usuarios que podrás visualizar y enfatizar a tu gusto"
+        },
+        "part_2": {
+            "parrafo": "Al hacer touch en el card se mostrará la información del usuario"
+        },
+        "part_3": {
+            "parrafo": "Al darle touch al ícono derecho te mostrarán usuarios parecidos"
+        },
+        "part_4": {
+            "parrafo": "Realiza filtros de los cards principales en base a lugar, edad, personas cercanos a ti y de acuerdo a tus gustos y preferencias"
+        },
+        "part_5": {
+            "parrafo": "Touch en un usuario destacado y podrás visualizar su información en el card principal"
+        },
+        "part_6": {
+            "parrafo": "Realiza filtros de los usuarios destacados en base a lugar, edad, personas cercanos a ti y de acuerdo a tus gustos y preferencias"
+        },
+        "part_7": {
+            "parrafo": "Al darle touch al ícono del centro podrás guardarlos en una lista de favoritos"
+        },
+        "part_8": {
+            "parrafo": "Al darle touch al ícono de izquierda podrás descartar  usuarios"
+        },
+        "btn_finalizar": "Finalizar"
+    },
+    "negocio": {
+        "titulo": "Negocio",
+        "titulo_2": "Crear Negocio",
+        "btn_siguiente": "Siguiente",
+        "parrafo": "Aquí podrás gestionar y crear tus negocios en Ladies VIP",
+        "btn_crear": "Crear negocio",
+        "btn_publicar": "Publicar negocio",
+        "paso_1": {
+            "titulo": "PASO",
+            "parrafo": "Ingresar información sobre el negocio",
+            "nombre": "Nombre del negocio",
+            "ph_nombre": "Ingresar un nombre",
+            "categoria": "Categoría",
+            "ph_categoria": "Selecciona una categoría",
+            "whatsapp": "WhatsApp (negocio)",
+            "web": "Enlace de negocio (web o redes sociales)",
+            "descripcion": "Descripción",
+            "ph_descripciom": "Escribir un resumen"
+        },
+        "paso_2": {
+            "titulo": "PASO 2",
+            "parrafo": "Ingresar información sobre el lugar",
+            "direccion": "Dirección",
+            "ph_direcion": "Ingrese una dirección",
+            "pais": "País",
+            "estado": "Estado",
+            "ciudad": "Ciudad",
+            "ubicacion": "Ubicar dentro del mapa",
+            "coordenadas": "Coordenadas"
+        },
+        "part_3": {
+            "titulo": "PASO 3",
+            "parrafo": "Ingresar imagenes que identifiquen al negocio"
+        },
+        "elimiar": {
+            "btn_editar": "Editar",
+            "btn_eliminar": "Eliminar negocio",
+            "btn_ir": "Ir a página"
+        },
+        "modal_1": {
+            "titlo": "¿Estás seguro que deseas eliminar tu negocio ?",
+            "parrafo": "Al eliminar tu negocio se borrarán todos la información, fotos y demás de manera permanente y ya no podrá ser recuperada",
+            "btn_eliminar": "Eliminar negocio",
+            "btn_cancelar": "Cancelar"
+        },
+        "modal_2": {
+            "titilo": "Negocio eliminado",
+            "parrafo": "Tu negocios en Ladies VIP se ha eliminado con éxito",
+            "btn_ok": "Ok"
+        },
+        "modal_bloqueado": {
+            "titulo": "Negocio bloqueado",
+            "parrafo": "Tu negocio ha sido bloqueado por Ladies VIP. Todo negocio creado tiene que estar dentro de nuestras políticas de uso"
+        }
+    },
+    "info_personal": {
+        "titulo": "Información personal",
+        "subtitulo": "Foto de perfil",
+        "btn_editar": "Editar foto",
+        "cum": "Cumpleaños",
+        "residencia": "Lugar de residencia",
+        "identificacion": "Identificación",
+        "gustos": "Gustos & Preferencias",
+        "geolocalizacion": "Geolocalización",
+        "btn_geolocalizacion": "Activar geolocalización",
+        "btn_guardar": "Guardar cambios",
+        "cumpleaños": {
+            "titulo": "Cumpleaños",
+            "parrafo": "*Esta información solo servirá para mostrarte a personas potenciales por medio de filtros"
+        },
+        "lugar_residencia": {
+            "titulo": "Lugar de residencia",
+            "pais": "País",
+            "estado": "Estado",
+            "ciudad": "Ciudad"
+        },
+        "Identificación": {
+            "Identificación": "Identificación",
+            "parrafo": "Elige una, varias opciones o servicios que brindas como usuario"
+        },
+        "gustos_preferencias": {
+            "titulo": "Gustos & preferencias",
+            "parrafo": "Elige una, varias opciones o servicios que buscas en Ladies VIP"
+        }
+    },
+    "cuenta_acceso": {
+        "titulo": "Cuenta de acceso",
+        "nombre": "Nombre",
+        "btn_editar": "Editar",
+        "email": "Email",
+        "telefono": "Teléfono",
+        "contrasena": "Contraseña",
+        "btn_eliminar": "ELIMINAR CUENTA",
+        "editar_info": {
+            "nombre": "Nombre",
+            "email": "Email",
+            "telefono": "Teléfono",
+            "btn_guardar": "Guardar cambios"
+        },
+        "editar_clave": {
+            "clave_actual": "Contraseña actual",
+            "clave": "Contraseña",
+            "confirmar_clave": "Confirmar contraseña",
+            "btn_guardar": "Guardar cambios"
+        },
+        "err_1":"Tu contraseña actual no es correcta.",
+        "delete":{
+            "titulo":"¿Estás seguro que deseas eliminar tu cuenta ?",
+            "text":"Al eliminar tu cuenta se borrarán todos tus datos, fotos, lista de favoritos, mensajes y demás... de manera permanente y ya no podrá ser recuperado"
+        }
+    },
+    "favoritos":{   
+        "titulo":"Favoritos",
+        "delete":"Eliminar favorito"
+    },
+    "identidad": {
+        "upt_0": "Mujer",
+        "upt_1": "Hombre",
+        "upt_2": "No binario",
+        "upt_3": "Pareja",
+        "upt_4": "Gay",
+        "upt_5": "Transexual",
+        "upt_6": "Travestie",
+        "upt_7": "Lesbiana",
+        "upt_8": "Otros"
+    },
+    "intereses": {
+        "upt_0": "Mujer",
+        "upt_1": "Hombre",
+        "upt_2": "No binario",
+        "upt_3": "Pareja",
+        "upt_4": "Gay",
+        "upt_5": "Transexual",
+        "upt_6": "Travestie",
+        "upt_7": "Lesbiana",
+        "upt_8": "Otros"
+    },
+    "servicios": {
+        "upt_0": "Masajes eróticos",
+        "upt_1": "Juguetes sexuales",
+        "upt_2": "Espacios sexuales",
+        "upt_3": "Agencia matrimonial",
+        "upt_4": "Otros"
+    },
+    "filtro": {
+        "pais": "País",
+        "estado": "Estado",
+        "ciudad": "Ciudad",
+        "lugar": "Lugar",
+        "distancia": "Distancia",
+        "val_distancia": "Para utilizar el filtro de distancia debes activar tu ubicación.",
+        "edad": "Edad",
+        "interes": "Intereses",
+        "filtrar": "Filtrar",
+        "filtros": "Filtros",
+        "buscar": "Buscar",
+        "agregar": "Agregar"
+    }
+}

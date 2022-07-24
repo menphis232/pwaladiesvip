@@ -1,0 +1,140 @@
+<div class="temp-login" *ngIf="!displayRecovery">
+
+    <div class="section-top">
+        <div class="subcard-18">
+            <h1 >+18</h1>
+            <h5>{{"landing.card_18" | translate}}</h5>
+        </div>
+        <h1>{{"iniciar_sesion.titulo" | translate}}</h1>
+        <img class="fondo" src="../../../assets/img/bg-top.png" alt="">
+    </div>
+
+    <div class="section-content">
+        <div>
+            <div *ngIf="error == 1" class="card-danger flex-d-row gap-10">
+                <span class="icon icon-circle-warning"></span>
+                <p>{{"iniciar_sesion.err_inicio" | translate}}</p>
+            </div>  
+
+            <!-- * EMAIL -->
+            <div class="form-group">
+                <label for="">{{"iniciar_sesion.correo" | translate}}</label>
+                <div class="group-input-icon-right">
+                    <span class="icon icon-circle-close" *ngIf="error == 2"></span>
+                    <input 
+                        type="text" 
+
+                        [ngClass]="error==2?'input-error':''" 
+                        [(ngModel)]="usuario.datos.correo" 
+                        (keyup)="ValAcceso()" 
+                        [placeholder]="'iniciar_sesion.correo' | translate"
+                    >
+                </div>
+            </div>
+    
+            <!-- * CONTRASEÑA -->
+            <div class="form-group">
+                <label for="">{{"iniciar_sesion.contrasena" | translate}}</label>
+                
+                <div class="group-input-icon-right">
+                    <span class="icon" [ngClass]="viewPass?'icon-eyes':'icon-eyes-close'" (click)="tooglePass()" ></span>
+                    <span class="icon icon-circle-close" *ngIf="error  == 2"></span>
+                    <input 
+                        type="password" 
+                        id="password"
+                        [(ngModel)]="usuario.datos.clave" 
+                        (keyup)="ValAcceso()" 
+                        [placeholder]="'iniciar_sesion.ph_contrasena' | translate"
+                        [ngClass]="error==2?'input-error':''"
+                        maxlength="25"
+                    >
+                </div>
+                <p class="text-error" *ngIf="error == 2">{{"iniciar_sesion.err_contrasena" | translate}}</p>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" checked="true" id="session-open">
+                <label for="session-open"> {{"iniciar_sesion.recordar" | translate}}</label>
+            </div>
+
+            <button 
+                class="btn-primary btn-block"
+                [ngClass]="habLogin?'btn-primary':'btn-disable'"
+                (click)="(!loading) && LogIn()"
+            >
+                {{"iniciar_sesion.titulo" | translate}} <span *ngIf="loading" class="icon icon-loader"></span>
+            </button>
+
+            <button class="btn btn-recovery-pass" (click)="displayRecovery = true">{{"iniciar_sesion.olvide" | translate}}</button>
+        </div>
+
+
+
+        <div class="grid align-content-start gap-20">
+            <div class="group-line-h">
+                <div class="line-h"> </div>
+                <h3>{{"iniciar_sesion.otros_inicios" | translate}}</h3>
+                <div class="line-h"> </div>
+            </div>
+
+            <div class="group-logins justify-content-center">
+                <button class="btn-type-login" (click)="LogInFacebook()" > <img src="../../../assets/img/Facebook.png" alt="">  </button>
+                <button class="btn-type-login" (click)="LogInGoogle()" > <img src="../../assets/img/Google.png" alt="">  </button>
+                <button class="btn-type-login"  (click)="LoginSms()"> <img src="../../assets/img/Phone.png" alt="">  </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="display_delete" >
+
+    <div class="card card-delete">
+        <button class="btn close justify-self-end" (click)="display_delete = false;"   ><span class="icon icon-close"></span></button>
+
+        <img src="../../../assets/img/close-square.png" alt="">
+
+        <h2 class="font-500" >{{"iniciar_sesion.alert_del.titulo" | translate}}</h2>
+        <h5 class="text-center">{{"iniciar_sesion.alert_del.texto" | translate}} </h5>
+        
+    </div>
+
+</div>
+
+<div class="container" *ngIf="display_block" >
+
+    <div class="card card-block">
+        <button class="btn close justify-self-end" (click)="display_block = false;"   ><span class="icon icon-close"></span></button>
+
+        <div class="content" *ngIf="fase_block == 0" >
+            <img src="../../../assets/img/alert-triangle.png" alt="">
+
+            <h2 class="font-500" >{{"iniciar_sesion.alert_block.titulo" | translate}}</h2>
+            <h5 class="text-center">{{"iniciar_sesion.alert_block.texto" | translate}}    </h5>
+            
+            <button class="btn-primary" (click)="fase_block =1" >{{"iniciar_sesion.alert_block.btn_des" | translate}} </button>
+        </div>
+
+        <div class="content" *ngIf="fase_block == 1" >
+            <h3 class="font-500" >{{"iniciar_sesion.alert_block.p1.title" | translate}} </h3>
+
+            <div class="form-group">
+                <label for="">{{"iniciar_sesion.alert_block.p1.label" | translate}} </label>
+
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+
+            <button class="btn-primary btn-block" (click)="fase_block=2" >{{"iniciar_sesion.alert_block.p1.btn" | translate}}</button>
+        </div>
+
+        <div class="content" *ngIf="fase_block == 2" >
+
+            <img src="../../../assets/img/circle-check-modal.png" alt="">
+            <h4  >{{"iniciar_sesion.alert_block.p2.title" | translate}}</h4>
+            <p class="text-center" >{{"iniciar_sesion.alert_block.p2.text" | translate}}</p>
+        </div>
+
+    </div>
+
+</div>
+
+<app-recoverypass *ngIf="displayRecovery"></app-recoverypass>

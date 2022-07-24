@@ -1,0 +1,85 @@
+<div class="temp-profile">
+
+    <div class="section-content">
+
+        <button id="config" class="btn" (click)="config()" > <span class="icon icon-gear"></span> </button>
+
+        <div class="content">
+            <div class="content-img">
+                <img *ngIf="!guest" [src]="url+datos.img_route" alt="">
+                <img *ngIf="guest" src="../../../../assets/img/splash.svg" alt="">
+            </div>
+            <div>
+                <h1> {{datos.name}} </h1>
+                <h4 *ngIf="!guest"> {{GetEdad()}} {{"perfil.anios" | translate}} • {{datos.estado}}, {{datos.pais}} </h4>
+            </div>       
+            
+            <div class="gestion">
+                <button *ngIf="!premium && !guest" routerLink="config/planes" >
+                    <img  src="../../../../assets/img/be-premium.png" alt="">
+                    {{"perfil.btn_premium" | translate}}
+                </button>
+
+                <button *ngIf="guest" (click)="GoLanding()" >
+                    <img  src="../../../../assets/img/be-premium.png" alt="">
+                    {{"perfil.btn_registrar" | translate}}
+                </button>
+
+                <button routerLink="config/anuncio" *ngIf="mypack != null">
+                    <img  [src]="'../../../../assets/img/'+img_pack" alt="">
+                    <span *ngIf="!myadd"> {{"perfil.btn_crear" | translate}}</span>
+                    <span *ngIf="myadd">{{"perfil.btn_editar" | translate}}</span>
+                </button>
+
+                <button (click)="GoPacks()" *ngIf="mypack == null" >
+                    <img  [src]="'../../../../assets/img/pack-add-standar.png'" alt="">
+                    <span > {{"perfil.btn_crear" | translate}}</span>
+                </button>
+            </div>
+
+        </div>
+
+        <button id="favoritos" (click)="Gofavorito()" class="btn"> <span class="icon icon-start"></span> </button>
+
+    </div>
+
+    <div class="section-promo">
+
+        <div class="promo">
+            <h3> {{"perfil.carrucel.subtitle" | translate}}</h3>
+
+            <img src="../../../../assets/img/diamont-gold.svg" alt="">
+    
+            <h1 class="font-600">{{"perfil.carrucel.titulo_2" | translate}} </h1>
+    
+            <h3>1 {{"perfil.carrucel.anuncio" | translate}} • 10 {{"perfil.carrucel.boost" | translate}}</h3>
+        </div>
+
+        <div class="slide-points">
+            <div class="point"></div>
+            <div class="point-active"></div>
+            <div class="point"></div>
+        </div>
+
+    </div>
+
+</div>
+<div class="container" *ngIf="loading"> 
+    <span class="icon icon-loading loading"></span>
+</div>
+<!-- <app-config *ngIf="false"></app-config> -->
+
+
+<div class="container alert"  *ngIf="alert_guest">
+
+    <div class="content">
+        <button class="btn close" (click)="alert_guest=false"  ><span class="icon icon-close"></span></button>
+
+        <h1>{{"home.val_gest_1.titulo" | translate}}</h1>
+
+        <h4>{{"home.val_gest_1.parrafo" | translate}}</h4>
+
+        <button class="btn premium"(click)="GoLanding()" >{{"home.val_gest_1.btn_premium" | translate}}</button>
+    </div>
+
+</div>

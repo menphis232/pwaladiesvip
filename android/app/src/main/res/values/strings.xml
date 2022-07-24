@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">LadiesVip</string>
+    <string name="title_activity_main">LadiesVip</string>
+    <string name="package_name">io.ladiesVIP.alaxa</string>
+    <string name="custom_url_scheme">io.ladiesVIP.alaxa</string>
+    <!-- <string name="facebook_app_id">795455795179427</string> -->
+    <string name="facebook_app_id">726088895116365</string>
+    <!-- <string name="facebook_client_token">c43b1202349fb2720b8fe5429e9d7445</string> -->
+    <string name="facebook_client_token">cc2e8c73f26085737057d2363d971cf2</string>
+    <string name="server_client_id">1056782232823-ifeii1n4ijap9hv190vj30gsrper7e6s.apps.googleusercontent.com</string>
+</resources>

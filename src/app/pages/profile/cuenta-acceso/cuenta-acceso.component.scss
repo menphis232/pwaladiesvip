@@ -1,0 +1,82 @@
+@import '../../../../theme/variables';
+
+.temp-cuenta{
+    display: grid;
+    height: 100%;
+    background-color: #fff;
+    grid-template: 
+    "header" 60px 
+    "body" auto
+    "footer" 200px/
+    100%;
+}
+
+.header{
+    grid-area: header;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 0px auto;
+    align-items: center;
+    padding: 5px 10px;
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.12);
+}
+
+.body{
+    grid-area: body;
+    display: grid;
+    align-content: start;
+    padding: 20px;
+    grid-gap: 35px;
+
+    .section{
+        .head{
+            display: grid;
+            grid-auto-flow: column;
+            justify-content: space-between;
+            align-items: center;
+            button{
+                color: $primario-rosa-2;
+                padding-top: 0px !important;
+                padding-bottom: 0px !important;
+            }
+        }
+        grid-gap: 20px;
+        display: grid;
+        align-content: start;
+        padding-bottom: 40px;
+        border-bottom: 1px solid $neutro-200;
+    }
+    #password{
+        border: 0px;
+        margin: 0px !important;
+    }
+
+    .form-group{
+        #password{
+            border: 1px solid $neutro-300;
+        }
+    }
+}
+
+.footer{
+    grid-area: footer;
+    display: grid;
+    padding: 20px;
+    align-items: center;
+}
+
+.card-delete{
+    width: 280px;
+    min-height: 300px;
+    background-color: #fff;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    display: grid;
+    padding: 20px 25px;
+    grid-gap: 10px;
+    justify-items: center;
+    text-align: center;
+}

@@ -1,0 +1,70 @@
+@import '../../../theme/variables';
+
+.template-notify{
+    display: grid;
+    height: 100%;
+    grid-gap: 20px;
+    grid-template-rows: 35px auto;
+
+
+}
+
+.content-notify{
+    display: grid;
+    height: 100%;
+    align-content: start;
+    grid-gap: 20px;
+}
+
+.card-notify{
+    display: grid;
+    height: max-content;
+    min-height: 50px;
+    grid-template-columns: 50px auto;
+    grid-gap: 5px;
+    
+    &-content-sms{
+        max-width: 100%;
+        height: 100%;
+        word-wrap: break-word;
+    }
+
+    &-img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;  
+        overflow: hidden;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    }
+}
+
+.card-notify-sms{
+    @extend .card-notify;
+    grid-template-columns: 50px auto 105px;
+
+    button{
+        width: 100%;
+        font-size: 12px;
+        padding: 4px 0px !important;
+    }
+
+    .title{
+        color: $neutro-600 !important;
+        font-weight: 600;
+    }
+
+    .content{
+        font-size: 14px !important;
+    }
+
+}

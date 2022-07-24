@@ -1,0 +1,72 @@
+<div class="temp-anuncio">
+    <button class=" btn btn-back" routerLink=".."> <span class="icon icon-chevron-left"></span> </button>
+
+        <button class=" btn btn-back-right" id="btnToggle" (click)="ToggleOptionTable()" ><span class="icon icon-dots-horizontal"></span></button>
+
+        <div class="table-optionsS" >
+            <button (click)="Delete()" > <i class="icon icon-trash"></i> {{"favoritos.delete" | translate}} </button>
+        </div>
+    <div class="section-photo">
+        <img #images [src]="url+urls" *ngFor="let urls of urls_image.slice().reverse(); let i = index" alt="">
+
+        <div class="points-group">
+            <!-- <div class="point-active"></div> -->
+            <div [id]="i" [ngClass]="point_img == i? 'point-active':'point'"
+                *ngFor="let urls of urls_image; let i = index"></div>
+        </div>
+    </div>
+    <div class="section-body">
+        <div class="content">
+            <div class="top">
+
+            </div>
+
+            <div class="body">
+                <h1 class="font-600 nombre"> {{anuncio.user.name}}</h1>
+
+                <h2 class="text-alert">{{GetEdad(anuncio.usuario.fecha_nac)}} {{"show_anuncio.anios" | translate}}  • {{anuncio.user.estado}},{{anuncio.user.pais}}</h2>
+
+                <h3> <span class="icon icon-mail"></span> {{anuncio.user.email}} </h3>
+                <h3> <span class="icon icon-phone"></span> +{{anuncio.user.code_phone}} {{anuncio.user.telefono}} </h3>
+
+                <div class="flex-column">
+                    <h3> <span class="icon icon-brujula"></span> {{"show_anuncio.busco" | translate}}: </h3>
+                    <span>pareja</span>
+                    <!-- <button class="btn-disable" *ngFor="let item of intereses_name" >
+                      {{item}}
+                  </button> -->
+                </div>
+
+                <p>
+                    {{anuncio.descripcion}}
+                </p>
+
+                <div class="group-contact">
+                    <button (click)="GoToCall()"> <img src="../../../assets/img/cont_phone.png" alt=""> </button>
+                    <button *ngIf="anuncio.hab_wts" (click)="GoToBrowser()"> <img src="../../../assets/img/cont_wts.png"
+                            alt=""> </button>
+                    <button *ngIf="anuncio.hab_chat"> <img src="../../../assets/img/cont_sms.png" alt=""> </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="container alert" *ngIf="alert == 1">
+
+    <div class="content">
+        <button class="btn close" (click)="alert = 0"><span class="icon icon-close"></span></button>
+
+        <h1>{{"show_anuncio.val_1.titulo" | translate}}</h1>
+
+        <h4>{{"show_anuncio.val_1.parrafo" | translate}}</h4>
+
+        <button class="btn premium" routerLink="../config/planes">{{"show_anuncio.val_1.btn_premium" | translate}}</button>
+    </div>
+
+</div>
+
+<div class="container" *ngIf="loading"> 
+    <span class="icon icon-loading loading"></span>
+</div>

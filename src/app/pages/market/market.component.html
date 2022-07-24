@@ -1,0 +1,271 @@
+<div *ngIf="display_market" class="temp-market">
+
+    <div class="market-section-filtro">
+        <div class="grid gc-2x-g">
+            <h1 class="font-500">Market VIP</h1>
+            <button class="btn justify-self-end" id="open_filtro" (click)="OpenFiltro()" > <span class="icon icon-filtro"></span> </button>
+        </div>
+
+        <div class="group-input-icon-left">
+            <span class="icon icon-search"></span>
+            <input type="text" [(ngModel)]="search" [placeholder]="'market_vip.ph_buscar' | translate" (keyup.enter)="Search()" >
+        </div>
+    </div>
+
+    
+    <div class="market-section-destacados">
+        <h5>{{"market_vip.parrafo" | translate}}</h5>
+
+        <div class="carousel">
+            <div class="card-carousel" (click)="OpenShow(negocio)"  *ngFor="let negocio of destacados" >
+                <h4> {{negocio.nombre}} </h4>
+                <img [src]=" url+ GetImg(negocio.images)" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="market-section-categorias">
+        <h5>{{"market_vip.categoria" | translate}}</h5>
+
+        <div class="card-categorias" (click)="SelectCat(0)">
+            <h4>{{"market_vip.cat_1" | translate}}</h4>
+            <img src="../../../assets/img/categoria_example.jpg" alt="">
+        </div>
+
+        <div class="card-categorias" (click)="SelectCat(1)">
+            <h4>{{"market_vip.cat_2" | translate}}</h4>
+            <img src="../../../assets/img/juguetes.jpeg" alt="">
+        </div>
+
+        <div class="card-categorias"  (click)="SelectCat(3)">
+            <h4>{{"market_vip.cat_3" | translate}}</h4>
+            <img src="../../../assets/img/categoria_example3.jpg" alt="">
+        </div>
+
+        <div class="card-categorias"  (click)="SelectCat(2)">
+            <h4>{{"market_vip.cat_4" | translate}}</h4>
+            <img src="../../../assets/img/categoria_example4.jpg" alt="">
+        </div>
+
+    </div>
+
+</div>
+
+<div *ngIf="display_res" class="temp-res">
+    <div class="header">
+        <button class="btn" (click)="CloseRes()" > <span class="icon icon-chevron-left"></span> </button>
+        <h3 class="font-500 justify-self-center"> {{nombre_cat}} </h3>
+    </div>
+
+    <div class="body" (scroll)="Scroll($event)">
+        <div class="group-input-icon-left">
+            <span class="icon icon-search"></span>
+            <input type="text"[(ngModel)]="search" [placeholder]="'market_vip.ph_buscar' | translate" (keyup.enter)="Search()" >
+        </div>
+
+        <div class="section-negocio" *ngFor="let item of data.data" (click)="OpenShow(item)" >
+            <div class="img">
+                <img [src]="url+GetImg(item.images)" alt="">
+            </div>
+
+            <div class="content">
+                <h3 class="font-600"> {{item.nombre}} </h3>
+
+                <h4 class="font-600"> <span class="icon icon-location"></span> {{item.ciudad}} </h4>
+            </div>
+
+            <div class="grid align-content-center">
+                <button class="btn"><span class="icon icon-chevron-right"></span></button>
+            </div>
+        </div>
+
+        <div *ngIf="loading_tab" class="loading"></div>
+    </div>
+
+</div>
+
+<div class="temp-show" *ngIf="display_show">
+    <button class="btn return" (click)="CloseShow()" > <span class="icon icon-chevron-left"></span> </button>
+    <div class="show-img">
+        <img #images  [src]="url+urls" *ngFor="let urls of urls_img.slice().reverse(); let i = index" alt="">
+
+        <div class="points-group">
+            <!-- <div class="point-active"></div> -->
+            <div [id]="i" [ngClass]="point_img == i? 'point-active':'point'" *ngFor="let urls of urls_img; let i = index"></div>
+        </div>
+    </div>
+
+    <div class="content-show">
+        <h2 class="font-600"> {{data_show.nombre}} </h2>
+
+        <h3> <span class="icon icon-location"></span> {{data_show.estado}}, {{data_show.pais}} </h3>
+        <h3> <span class="icon icon-phone"></span> +{{data_show.code_phone}} {{data_show.telefono}} </h3>
+
+        <h3>
+            {{
+                data_show.descripcion
+            }}
+        </h3>
+
+        <a class="btn-primary" [href]="data_show.web" target="_blank" > {{"market_vip.btn_pag" | translate}} <span class="icon icon-arrow-right"></span> </a>
+    </div>
+</div>
+
+<div class="container" style="position: absolute;" *ngIf="loading"> 
+    <span class="icon icon-loading loading"></span>
+</div>
+
+
+<!-- ! FILTRAR ============================================================= -->
+
+<div class="bg-card bg-filtro fadeIn"  *ngIf="display_filtro" >
+
+    <div class="card-option onUp" >
+        <div class="card-option-header">
+            <button *ngIf="filtro_fase == 0" (click)="LimpiarFiltro()"  class="btn clear-filtro justify-self-start"> <span class="icon  icon-trash"></span> </button>
+
+            <button *ngIf="filtro_fase == 0"  class="btn justify-self-end"> <span class="icon"></span> </button>
+            <button *ngIf="filtro_fase == 1" (click)="filtro_fase = 0"  class="btn justify-self-end"> <span class="icon icon-chevron-left"></span> </button>
+
+            <h3 class=" justify-self-center text-center font-600">{{"filtro.filtros" | translate}}</h3>
+
+            <button class="btn justify-self-end" *ngIf="filtro_fase == 0" (click)="CloseFiltro()" > <span class="icon icon-close"></span> </button>
+            <button *ngIf="filtro_fase == 1" (click)="LimpiarFiltroLocation()"  class="btn justify-self-end"> <span class="icon  icon-trash"></span> </button>
+
+        </div>
+
+        <div class="card-option-body" [hidden]="filtro_fase!=0">
+
+            <div class="section">
+                <div class="head">
+                    <h3 class="font-600">{{"filtro.lugar" | translate}}</h3>
+                    <button class="btn" (click)="filtro_fase = 1" > {{sel_estado}} , {{user.pais}} <span class="icon icon-chevron-right"></span> </button>
+                </div>
+
+            </div>
+
+            <div class="section " [class]="show_distancia? '':'disable' " >
+                <div class="head">
+                    <h3 class="font-600">{{"filtro.distancia" | translate}} </h3>
+                    <h3> {{km}} km</h3>
+                </div>
+
+                <div class="container-range"  >
+                    <div class="line-range" ></div>
+                    <input type="range"  id="line-km" [(ngModel)]="km" class="range" min="1" max="100" value="100">
+                </div>
+
+                <p [hidden]="show_distancia" >{{"filtro.val_distancia" | translate}}</p>
+
+            </div>
+
+
+            <div class="section">
+                <button class="btn-primary btn-block" (click)="Filtrar()">{{"filtro.filtrar" | translate}}</button>
+            </div>
+
+        </div>
+
+        <div class="card-option-body" *ngIf="filtro_fase == 1">
+
+            <div class="form-location">
+                <div class="form-group">
+                    <label for="">{{"filtro.pais" | translate}} </label>
+                    <button class="btn"  > {{user.pais}} <span class="icon icon-chevron-down"></span> </button>
+                </div>
+
+                <div class="form-group">
+                    <label for="">{{"filtro.estado" | translate}} </label>
+                    <button class="btn" (click)=" (user.pais) && display_estado = true" > {{sel_estado}} <span class="icon icon-chevron-down"></span> </button>
+   
+                </div>
+    
+                <div class="form-group">
+                    <label for="">{{"filtro.ciudad" | translate}} </label>
+                    <button class="btn" (click)=" display_ciudad = true" > {{sel_ciudad}} <span class="icon icon-chevron-down"></span> </button>
+                </div>
+            </div>
+
+
+            <div class="section">
+                <button class="btn-primary btn-block" (click)="filtro_fase =0" >{{"filtro.agregar" | translate}}</button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- ? ESTADO ============================================== -->
+<div class="bg-card filtros fadeIn"  *ngIf="display_estado">
+    <div class="card-option onUp" >
+        <div class="card-option-header">
+            <button class="btn justify-self-end"> <span class="icon"></span> </button>
+
+            <h3 class=" justify-self-center text-center font-600">{{"filtro.estado" | translate}}</h3>
+
+            <button class="btn justify-self-end" (click)="CerrarModal()"> <span class="icon icon-close"></span> </button>
+        </div>
+
+        <div class="card-option-search">
+            <div class="group-input-icon-left">
+                <span class="icon icon-search"></span>
+                <input type="text" [(ngModel)]="filtro" (keyup)="filtrar()" [placeholder]=" 'filtro.buscar' | translate ">
+            </div>
+        </div>
+        <div *ngIf="loading" class="loading"></div>
+        <div class="card-option-body" *ngIf="estado_filtro.length == 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let estado of estados;let i = index">
+                <label [for]="i"> {{estado.state_name}}</label>
+                <input (click)="SelectEstado( estado.state_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+        <div class="card-option-body" *ngIf="estado_filtro.length != 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let estado of estado_filtro;let i = index">
+                <label [for]="i"> {{estado.state_name}} </label>
+                <input (click)="SelectEstado( estado.state_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ? CIUDAD ============================================== -->
+<div class="bg-card filtros fadeIn"  *ngIf="display_ciudad">
+    <div class="card-option onUp" >
+        <div class="card-option-header">
+            <button class="btn justify-self-end"> <span class="icon"></span> </button>
+
+            <h3 class=" justify-self-center text-center font-600">{{"filtro.ciudad" | translate}}</h3>
+
+            <button class="btn justify-self-end" (click)="CerrarModal()"> <span class="icon icon-close"></span> </button>
+        </div>
+
+        <div class="card-option-search">
+            <div class="group-input-icon-left">
+                <span class="icon icon-search"></span>
+                <input type="text" [(ngModel)]="filtro" (keyup)="filtrar()"  [placeholder]=" 'filtro.buscar' | translate ">
+            </div>
+        </div>
+
+        <div *ngIf="loading" class="loading"></div>
+
+        <h2 class="text-center" *ngIf="ciudades.length == 0">No posee, continue a la siguiente fase</h2>
+        <div class="card-option-body" *ngIf="ciudad_filtro.length == 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let ciudad of ciudades;let i = index">
+                <label [for]="i"> {{ciudad.city_name}}</label>
+                <input (click)="SelectCiudad( ciudad.city_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+        <div class="card-option-body" *ngIf="ciudad_filtro.length != 0">
+            <div class="radio-group" style="justify-content: space-between;" *ngFor="let ciudad of ciudad_filtro;let i = index">
+                <label [for]="i"> {{ciudad.city_name}} </label>
+                <input (click)="SelectCiudad( ciudad.city_name)" [id]="i" name="tlf" type="radio">
+            </div>
+        </div>
+
+    </div>
+</div>
